@@ -6,9 +6,6 @@ public class Palabra {
     
 	private ArrayList _LETRAS;
 	
-	public Palabra()
-	{}
-	
 	public Palabra(String palabra)
 	{
 		_LETRAS = new ArrayList();
