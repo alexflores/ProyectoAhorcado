@@ -9,7 +9,7 @@ public class Juego {
 	
     public static final int JUGANDO = 0;
 	
-	private ArrayList _JUGADAS;
+	//private ArrayList _JUGADAS;
 	
 	private Palabra _ACTUAL;
 	
@@ -25,13 +25,13 @@ public class Juego {
 		_ACTUAL = (new Palabra(palabra));
 		
 		//inicializar el vector de letras jugadas
-		_JUGADAS = new ArrayList();
+		//_JUGADAS = new ArrayList();
 	}
 	
 	public boolean jugarLetra(Letra letra)
 	{
 		//agregar la letra a las jugadas
-		_JUGADAS.add(letra);
+		//_JUGADAS.add(letra);
 		
 		//revisar si la letra pertenece a la palabra
 		boolean pertenece = _ACTUAL.estaLetra(letra);
@@ -51,12 +51,12 @@ public class Juego {
 		return _ACTUAL;
 	}
 	
-	public ArrayList darJugadas()
+	/*public ArrayList darJugadas()
 	{
 		return _JUGADAS;
-	}
+	}*/
 	
-	public ArrayList darOcurrencias()
+	public ArrayList darOcurrencias(ArrayList _JUGADAS)
 	{
 		return _ACTUAL.darOcurrencias(_JUGADAS);
 	}
