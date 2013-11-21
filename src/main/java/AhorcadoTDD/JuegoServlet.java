@@ -11,20 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 public class JuegoServlet extends HttpServlet {
 	Juego j = new Juego();
+	ArrayList _JUGADAS = new ArrayList();
+	public JuegoServlet() {
+		j.iniciarJuego("sistemas");
+
+	}
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		ArrayList _JUGADAS = new ArrayList();
-		Palabra p = new Palabra();
-		
-		j.iniciarJuego("sistemas");
 		
 		String letrita = request.getParameter("letra");
 		PrintWriter out = response.getWriter();
 		if(letrita == null)
 		{
-			letrita="acm1pt";
+			letrita="acm";
 		}
 		char arr[] = letrita.toCharArray();
 		int tam = arr.length;
