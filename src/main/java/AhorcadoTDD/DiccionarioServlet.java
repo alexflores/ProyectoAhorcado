@@ -25,11 +25,7 @@ public class DiccionarioServlet extends HttpServlet {
 		else
 		{
 			response.getWriter().println("error");
-		}
-		
-		
-		
-		
+		}	
 		
 	}
 }

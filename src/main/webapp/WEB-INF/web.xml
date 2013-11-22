@@ -1,13 +1,17 @@
 <web-app>
    <servlet>
 	<servlet-name>juegoServlet</servlet-name>
-	<servlet-name>diccionarioServlet</servlet-name>
 	<servlet-class>AhorcadoTDD.JuegoServlet</servlet-class>
-	<servlet-class>AhorcadoTDD.DiccionarioServlet</servlet-class>
   </servlet>
   <servlet-mapping>
 	<servlet-name>juegoServlet</servlet-name>
 	<url-pattern>/juegoServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+	<servlet-name>diccionarioServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.DiccionarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
 	<servlet-name>diccionarioServlet</servlet-name>
 	<url-pattern>/diccionarioServlet</url-pattern>
   </servlet-mapping>
