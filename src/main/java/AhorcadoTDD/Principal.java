@@ -1,15 +1,12 @@
 package AhorcadoTDD;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Principal {
 	
 	public static void main(String[] args)
 	{
-
 		Bienvenida b = new Bienvenida();
 		b.bienvenida();
 		boolean r;
@@ -40,11 +37,11 @@ public class Principal {
 		System.out.println(r2);
 		
 		//Palabra j = new Palabra("s");
-		ArrayList jugadas = new ArrayList();
+		ArrayList<Letra> jugadas = new ArrayList<Letra>();
 		//jugadas = j.getLetras();
 		jugadas.add(new Letra(' '));
 		//jugadas.add(new Letra('s'));
-		ArrayList palabra = new ArrayList();
+		ArrayList<Letra> palabra = new ArrayList<Letra>();
 		palabra = p.darOcurrencias(jugadas);
 		//System.out.println(palabra);
 		int cont=0;
@@ -56,15 +53,18 @@ public class Principal {
 		}
 		
 		Juego j = new Juego();
-		j.iniciarJuego("Sistemas");
-		boolean x,y,z;
+		j.iniciarJuego("hola");
+		Letra l3 = new Letra('A');
+		String res;
+		/*boolean x,y,z;
 		x=j.jugarLetra(new Letra('S'));
 		y=j.jugarLetra(new Letra('k'));
 		z=j.jugarLetra(new Letra('m'));
 		System.out.println(x);
 		System.out.println(y);
-		System.out.println(z);
-		
+		System.out.println(z);*/
+		res = j.juego(l3, 1);
+		System.out.println(res);
 	}
 	
  }

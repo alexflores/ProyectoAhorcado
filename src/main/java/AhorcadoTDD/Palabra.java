@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Palabra {
     
-	private ArrayList _LETRAS;
+	private ArrayList<Letra> _LETRAS;
 	
 	public Palabra(String palabra)
 	{
-		_LETRAS = new ArrayList();
+		_LETRAS = new ArrayList<Letra>();
 		
 		// Adicionar las letras al vector recorriendo todos los caracteres del String
 		int i = 0;
@@ -24,12 +24,12 @@ public class Palabra {
 		}
 	}
 	
-	 public ArrayList getLetras( )
+	 public ArrayList<Letra> getLetras( )
 	 {
 	        return _LETRAS;
 	 }
 	
-	public boolean buscarLetraEnVector(Letra letra, ArrayList vecLetras)
+	public boolean buscarLetraEnVector(Letra letra, ArrayList<Letra> vecLetras)
 	{
 		boolean esta = false;
 		int cont = 0;
@@ -52,9 +52,9 @@ public class Palabra {
 		return buscarLetraEnVector(letra, _LETRAS);
 	}
 	
-	public ArrayList darOcurrencias(ArrayList jugadas)
+	public ArrayList<Letra> darOcurrencias(ArrayList<Letra> jugadas)
 	{
-		ArrayList visibles = new ArrayList();
+		ArrayList<Letra> visibles = new ArrayList<Letra>();
 		
 		int cont = 0;
 		//Se recorren todas las letras de la palabra
