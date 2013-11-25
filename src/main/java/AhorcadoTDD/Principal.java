@@ -65,18 +65,6 @@ public class Principal {
 		System.out.println(z);*/
 		/*res = j.juego(l3, 1);
 		System.out.println(res);*/
-<<<<<<< HEAD
-		ArrayList<String> lista;
-		Ranking nuevo=new Ranking();
-		lista=nuevo.ObtenerUsuarios();
-		System.out.println(lista);
-=======
-		Ranking nuevo= new Ranking();
-		ArrayList<String> resultado=nuevo.ObtenerPalabra();
-		for(int a=0;a<resultado.size();a++){
-			System.out.print(resultado.get(a));
-		}
->>>>>>> be9f28b24b919fc9f790bf55b77b197e12529842
 	}
 	
  }
