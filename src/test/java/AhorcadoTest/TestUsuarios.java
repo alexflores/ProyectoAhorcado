@@ -46,5 +46,24 @@ Usuario user;
 		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pablo", "pablo123")));
 	}
 	
+	@Test
+	public void SiElUsuarioEstaRegistradoAlIngresarLoginIncorrectoDevuelveUnMensajeDeError()
+	{
+		user.NuevoUsuario("Pablo Alboran", "pablo", "pablo123");
+		user.RegistrarUsuario();
+		String mensajeDeExito = "Error: Login Incorrecto";
+		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pabloa", "pablo123")));
+	}
+	
+	@Test
+	public void SiElUsuarioEstaRegistradoAlIngresarPasswordIncorrectoDevuelveUnMensajeDeError()
+	{
+		user.NuevoUsuario("Pablo Alboran", "pablo", "pablo123");
+		user.RegistrarUsuario();
+		String mensajeDeExito = "Error: Password Incorrecto";
+		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pablo", "pablo1234")));
+	}
+	
+	
 
 }

@@ -17,6 +17,8 @@ public class Usuario {
 	private static final String _REGISTRO_EXITOSO = "El Usuario se registro correctamente";
 	private static final String _ERROR_LOGIN_REPETIDO = "El Id de Usuario (Login) ya se encuentra registrado";
 	private static final String _INICIO_DE_SESION_EXITOSO = "Bienvenido Acaba De Iniciar Session";
+	private static final String _ERROR_LOGIN_INCORRECTO = "Error: Login Incorrecto";
+	private static final String _ERROR_PASSWORD_INCORRECTO = "Error: Password Incorrecto";
 	
 	public void NuevoUsuario(String nombre, String login, String password)
 	{
@@ -117,8 +119,13 @@ public class Usuario {
 		{
 			if(ExistePassword(pass))
 				mensaje = _INICIO_DE_SESION_EXITOSO;
+			else
+				mensaje = _ERROR_PASSWORD_INCORRECTO;
 		}
-		
+		else
+		{
+			mensaje = _ERROR_LOGIN_INCORRECTO;
+		}
 		return mensaje;
 	}
 
