@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 public class Usuario {
 	
@@ -20,14 +19,11 @@ public class Usuario {
 	private static final String _ERROR_LOGIN_INCORRECTO = "Error: Login Incorrecto";
 	private static final String _ERROR_PASSWORD_INCORRECTO = "Error: Password Incorrecto";
 	
-	public void NuevoUsuario(String nombre, String login, String password)
-	{
+	public String RegistrarUsuario(String nombre, String login, String password) {
+		
 		UsuarioNombre = nombre;
 		UsuarioLogin = login;
 		UsuarioPassword = password;
-	}
-	
-	public String RegistrarUsuario() {
 		
 		FileWriter fichero = null;
         PrintWriter pw = null;

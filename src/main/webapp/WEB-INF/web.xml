@@ -15,4 +15,20 @@
 	<servlet-name>diccionarioServlet</servlet-name>
 	<url-pattern>/diccionarioServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+	<servlet-name>loginServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>loginServlet</servlet-name>
+	<url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+	<servlet-name>registroUsuarioServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.RegistroUsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>registroUsuarioServlet</servlet-name>
+	<url-pattern>/registroUsuarioServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

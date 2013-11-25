@@ -21,27 +21,22 @@ Usuario user;
 	
 	@Test
 	public void DevuelveUnMensajeDeExitoSiElUsuarioAhSidoRegistradoSatisfactoriamente() {
-		//user.LimpiarArchivoUsuarios();
-		user.NuevoUsuario("Pablo Alboran", "pablo", "pablo123");
 		String mensajeDeExito = "El Usuario se registro correctamente";
-		assertTrue(mensajeDeExito.equals(user.RegistrarUsuario()));
+		assertTrue(mensajeDeExito.equals(user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123")));
 	}
 	
 	@Test
 	public void DevuelveUnMensajeDeErrorSiElLoginYaSeEncuentraRegistrado()
 	{
-		user.NuevoUsuario("Pablo Alboran", "pablo", "pablo123");
-		user.RegistrarUsuario();
-		user.NuevoUsuario("Alejando Pablo Estrada", "pablo", "alejandro213");
+		user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123");
 		String mensajeDeError = "El Id de Usuario (Login) ya se encuentra registrado";
-		assertTrue(mensajeDeError.equals(user.RegistrarUsuario()));
+		assertTrue(mensajeDeError.equals(user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123")));
 	}
 	
 	@Test
 	public void SiElUsuarioEstaRegistradoAlIngresarLoginDevuelveUnMensajeDeInicioDeSession()
 	{
-		user.NuevoUsuario("Pablo Alboran", "pablo", "pablo123");
-		user.RegistrarUsuario();
+		user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123");
 		String mensajeDeExito = "Bienvenido Acaba De Iniciar Session";
 		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pablo", "pablo123")));
 	}
@@ -49,8 +44,7 @@ Usuario user;
 	@Test
 	public void SiElUsuarioEstaRegistradoAlIngresarLoginIncorrectoDevuelveUnMensajeDeError()
 	{
-		user.NuevoUsuario("Pablo Alboran", "pablo", "pablo123");
-		user.RegistrarUsuario();
+		user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123");
 		String mensajeDeExito = "Error: Login Incorrecto";
 		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pabloa", "pablo123")));
 	}
@@ -58,8 +52,7 @@ Usuario user;
 	@Test
 	public void SiElUsuarioEstaRegistradoAlIngresarPasswordIncorrectoDevuelveUnMensajeDeError()
 	{
-		user.NuevoUsuario("Pablo Alboran", "pablo", "pablo123");
-		user.RegistrarUsuario();
+		user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123");
 		String mensajeDeExito = "Error: Password Incorrecto";
 		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pablo", "pablo1234")));
 	}
