@@ -7,10 +7,8 @@ import java.util.ArrayList;
 
 public class Ranking {
 
-	/*public ArrayList<String> ObtenerUsuarios()
+	public ArrayList<String> ObtenerUsuarios()
 	{
-		public ArrayList<String> ObtenerPalabra() {
-		
 		  File archivo = null;
 	      FileReader fr = null;
 	      BufferedReader br = null;
@@ -44,5 +42,4 @@ public class Ranking {
 	      }
 	      return ListaPalabras;
 		}
-	}*/
-}
+	}
