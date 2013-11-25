@@ -76,6 +76,7 @@ public class Principal {
 		for(int a=0;a<resultado.size();a++){
 			System.out.print(resultado.get(a));
 		}*/
+		//System.out.println(us.getUserLogin(datos));
 	}
 	
  }
