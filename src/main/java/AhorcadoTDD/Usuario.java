@@ -16,6 +16,7 @@ public class Usuario {
 	
 	private static final String _REGISTRO_EXITOSO = "El Usuario se registro correctamente";
 	private static final String _ERROR_LOGIN_REPETIDO = "El Id de Usuario (Login) ya se encuentra registrado";
+	private static final String _INICIO_DE_SESION_EXITOSO = "Bienvenido Acaba De Iniciar Session";
 	
 	public void NuevoUsuario(String nombre, String login, String password)
 	{
@@ -32,7 +33,7 @@ public class Usuario {
         String mensaje = "";
         try
         {
-        	if(LoginRepetido(UsuarioLogin))
+        	if(ExisteLogin(UsuarioLogin))
         	{
 	            mensaje = _ERROR_LOGIN_REPETIDO;
         	}
@@ -57,7 +58,7 @@ public class Usuario {
         return mensaje;
 	}
 
-	private boolean LoginRepetido(String usuarioLogin) {
+	private boolean ExisteLogin(String usuarioLogin) {
 		  File archivo = null;
 	      FileReader fr = null;
 	      BufferedReader br = null; 
@@ -108,6 +109,54 @@ public class Usuario {
 				}
 		}	 
 		return resp;
+	}
+
+	public String IniciarSesion(String login, String pass) {
+		String mensaje = "";
+		if(ExisteLogin(login))
+		{
+			if(ExistePassword(pass))
+				mensaje = _INICIO_DE_SESION_EXITOSO;
+		}
+		
+		return mensaje;
+	}
+
+	private boolean ExistePassword(String pass) {
+		File archivo = null;
+	      FileReader fr = null;
+	      BufferedReader br = null; 
+	      boolean ExistePass = false;
+	 
+	      try 
+	      {
+	         archivo = new File ("usuarios.txt");
+	         fr = new FileReader (archivo);
+	         br = new BufferedReader(fr);
+	         String linea = "";
+	         
+	         while((linea = br.readLine())!=null)
+	        	 if(pass.equals(getUserPassword(linea)))
+	        	 {
+	        		 ExistePass = true;
+	        	 }
+	      }catch (Exception e) {
+	          e.printStackTrace();
+	      } finally {
+	         try {
+	         if (null != fr)
+	        	 fr.close();
+	         } catch (Exception e2) {
+	            e2.printStackTrace();
+	         }
+	      }
+		  return ExistePass;
+	}
+
+	private String getUserPassword(String linea) {
+		//ArrayList<String> datosUsuario = new ArrayList<String>();
+		String[] datosUsuario = linea.split("\\|");
+		return datosUsuario[2];
 	}
 	
 	

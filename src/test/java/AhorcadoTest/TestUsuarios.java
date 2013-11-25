@@ -30,12 +30,20 @@ Usuario user;
 	@Test
 	public void DevuelveUnMensajeDeErrorSiElLoginYaSeEncuentraRegistrado()
 	{
-		Usuario user = new Usuario();
 		user.NuevoUsuario("Pablo Alboran", "pablo", "pablo123");
 		user.RegistrarUsuario();
 		user.NuevoUsuario("Alejando Pablo Estrada", "pablo", "alejandro213");
 		String mensajeDeError = "El Id de Usuario (Login) ya se encuentra registrado";
 		assertTrue(mensajeDeError.equals(user.RegistrarUsuario()));
+	}
+	
+	@Test
+	public void SiElUsuarioEstaRegistradoAlIngresarLoginDevuelveUnMensajeDeInicioDeSession()
+	{
+		user.NuevoUsuario("Pablo Alboran", "pablo", "pablo123");
+		user.RegistrarUsuario();
+		String mensajeDeExito = "Bienvenido Acaba De Iniciar Session";
+		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pablo", "pablo123")));
 	}
 	
 
