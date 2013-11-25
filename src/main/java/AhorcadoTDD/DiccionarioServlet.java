@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@SuppressWarnings("serial")
 public class DiccionarioServlet extends HttpServlet {
 	
 	Diccionario dic = new Diccionario();
@@ -25,11 +26,7 @@ public class DiccionarioServlet extends HttpServlet {
 		else
 		{
 			response.getWriter().println("error");
-		}
-		
-		
-		
-		
+		}	
 		
 	}
 }

@@ -15,6 +15,14 @@ public class Diccionario {
 		
 	}
 	
+	public boolean ValidarPalabra(String palabra) {
+		boolean resp = true;
+		int a = palabra.indexOf(' ');
+		if(a>0)
+			resp = false;
+		return resp;
+	}
+	
 	public Boolean AniadirPalabra(String palabra) {
 		
 		FileWriter fichero = null;
@@ -176,12 +184,5 @@ public class Diccionario {
 		return listaPalabras.get(random);
 	}
 
-	public boolean ValidarPalabra(String palabra) {
-		boolean resp = true;
-		int a = palabra.indexOf(' ');
-		if(a>0)
-			resp = false;
-		return resp;
-	}
 }
 

@@ -42,7 +42,7 @@ public class Pistas {
 	public String NuevoArray(String palabraOculta, int posicionDeLaPista2,
 			String palabra,char letra) {
 		String resp=palabraOculta;
-		int cont=0;
+
 		if(BuscarLetraenPalabra(posicionDeLaPista2,palabra,letra)==true)
 		{
 			char[]auxiliar=resp.toCharArray();
