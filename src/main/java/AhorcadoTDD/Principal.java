@@ -65,7 +65,6 @@ public class Principal {
 		System.out.println(z);*/
 		/*res = j.juego(l3, 1);
 		System.out.println(res);*/
-<<<<<<< HEAD
 
 		ArrayList<String> lista;
 		Ranking nuevo=new Ranking();
@@ -77,9 +76,6 @@ public class Principal {
 		for(int a=0;a<resultado.size();a++){
 			System.out.print(resultado.get(a));
 		}*/
-
-=======
->>>>>>> fc7def7a1b39f46b4377573c4a52a9e70c69390d
 	}
 	
  }
