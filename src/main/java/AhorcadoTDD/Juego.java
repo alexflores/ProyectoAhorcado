@@ -1,9 +1,11 @@
 package AhorcadoTDD;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Juego {
-	
+	public int puntaje=0;
     public static final int JUGANDO = 0;
     //Vector de letras jugadas por el jugador
 	private ArrayList<Letra> _JUGADAS;
@@ -96,5 +98,4 @@ public class Juego {
     {
         return estado;
     }
-	
 }

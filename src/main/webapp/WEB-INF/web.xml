@@ -31,4 +31,12 @@
 	<servlet-name>registroUsuarioServlet</servlet-name>
 	<url-pattern>/registroUsuarioServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+	<servlet-name>rankingServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.RankingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>rankingServlet</servlet-name>
+	<url-pattern>/rankingServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
