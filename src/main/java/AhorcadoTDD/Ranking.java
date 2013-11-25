@@ -6,8 +6,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Ranking {
-
-	public ArrayList<String> ObtenerUsuarios()
+	
+	public ArrayList<String> ObtenerUsuarios()//no tiene test porque estoy reutilizando codigo de diccionario que ya tiene test
 	{
 		  File archivo = null;
 	      FileReader fr = null;
@@ -42,4 +42,10 @@ public class Ranking {
 	      }
 	      return ListaPalabras;
 		}
+
+	public int sacar(String linea) {
+		int resp;
+		String[] campos = linea.split (" "); 
+		return resp=Integer.parseInt(campos[1]);
 	}
+}
