@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 		r.ObtenerUsuarios();
 		out.println("	cargo palabra");
 		int aux;
-		for(aux=0;aux<r.ListaPalabras.size();a++)
+		for(aux=0;aux<r.ListaPalabras.size();aux++)
 			out.println(r.ListaPalabras.get(aux));
 		out.println("`paso del for");
 		out.println("</body>");
