@@ -6,17 +6,12 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Ranking {
-	
-<<<<<<< HEAD
-	public ArrayList<String> ObtenerUsuarios()
+
+	/*public ArrayList<String> ObtenerUsuarios()
 	{
-		
-		File archivo = null;
-=======
-	public ArrayList<String> ObtenerPalabra() {
+		public ArrayList<String> ObtenerPalabra() {
 		
 		  File archivo = null;
->>>>>>> be9f28b24b919fc9f790bf55b77b197e12529842
 	      FileReader fr = null;
 	      BufferedReader br = null;
 	      
@@ -47,15 +42,7 @@ public class Ranking {
 	             e2.printStackTrace();
 	          }
 	      }
-<<<<<<< HEAD
-		return ListaPalabras;
-	
-	}
-	
-=======
-	
-		
-		return ListaPalabras;
-	}
->>>>>>> be9f28b24b919fc9f790bf55b77b197e12529842
+	      return ListaPalabras;
+		}
+	}*/
 }
