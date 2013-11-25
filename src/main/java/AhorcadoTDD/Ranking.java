@@ -97,5 +97,13 @@ public class Ranking {
 	        } 
 	 
         }
+	public void mostrarPuntajes()
+	{
+		int a;
+		ObtenerUsuarios();
+		OrdenamientoBurbuja();
+		for(a=0;a<ListaPalabras.size();a++)
+			System.out.println(ListaPalabras.get(a));
+	}
 
 }

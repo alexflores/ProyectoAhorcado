@@ -23,9 +23,11 @@ import javax.servlet.http.HttpServletResponse;
 		out.println("<html>");
 		out.println("<body bgcolor=#33ff00>");
 		r.IngresarPuntaje("rudy",100);
+		r.ObtenerUsuarios();
 		out.println("	cargo palabra");
-		for(a=0;a<r.ListaPalabras.size();a++)
-			response.getWriter().println(r.ListaPalabras.get(a));
+		int aux;
+		for(aux=0;aux<r.ListaPalabras.size();a++)
+			out.println(r.ListaPalabras.get(aux));
 		out.println("`paso del for");
 		out.println("</body>");
 		out.println("</html>");
