@@ -22,14 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<body bgcolor=#33ff00>");
+		r.IngresarPuntaje("rudy",100);
+		out.println("	cargo palabra");
 		for(a=0;a<r.ListaPalabras.size();a++)
-		out.println("<table>");
-		out.println("<tr>");
-		out.println("<td>");
-		out.println(r.ListaPalabras.get(a));
-		out.println("</td>");
-		out.println("</tr>");
-		out.println("</table>");
+			response.getWriter().println(r.ListaPalabras.get(a));
+		out.println("`paso del for");
 		out.println("</body>");
 		out.println("</html>");
 			
