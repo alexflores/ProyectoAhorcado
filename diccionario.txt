@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 macarron
+=======
+chuleta
+>>>>>>> be9f28b24b919fc9f790bf55b77b197e12529842
