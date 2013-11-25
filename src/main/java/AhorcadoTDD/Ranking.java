@@ -64,6 +64,22 @@ public class Ranking {
 			}
 		}
 	}
-	
-	
+
+	public String nuevostring(String nombre, int entero) {
+		// TODO Auto-generated method stub
+		String resultado = null;
+		String enterostring=String.valueOf(entero);
+		resultado.concat(nombre);
+		resultado.concat("%");
+		resultado.concat(enterostring);
+		
+		return resultado;
+	}
+
+	public int puntajetotal(int fallas) {
+		int finalpuntaje=100;
+		finalpuntaje=finalpuntaje/fallas;
+		// TODO Auto-generated method stub
+		return finalpuntaje;
+	}	
 }
