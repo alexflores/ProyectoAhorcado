@@ -16,5 +16,16 @@ public class TestJuego {
 		j.iniciarJuego("sistemas");
 		assertEquals(true,j.jugarLetra(l));
 	}
+	
+	@Test
+	public void devuelveMensajeDeIngresarDeLaAalaZEnCasoDeSerTamMayorAUno()
+	{
+		Juego j = new Juego();
+		String pal = "sistemas";
+		char arr[] = pal.toCharArray();
+		int tam = arr.length;
+		Letra l = new Letra(arr[0]);
+		assertEquals("Debe ingresar una letra de la A a la Z",j.juego(l, tam));
+	}
 
 }

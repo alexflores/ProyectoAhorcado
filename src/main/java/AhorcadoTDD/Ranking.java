@@ -42,6 +42,12 @@ public class Ranking {
 	          }
 	      }
 		}
+	/*public int puntajetotal(int fallas) { j unit fallando
+	int finalpuntaje=100;
+	finalpuntaje=finalpuntaje/fallas;
+	// TODO Auto-generated method stub
+	return finalpuntaje;
+}*/
 
 	public int sacar(String linea) {
 		int resp;
@@ -76,12 +82,7 @@ public class Ranking {
 		return resultado;
 	}
 
-	public int puntajetotal(int fallas) {
-		int finalpuntaje=100;
-		finalpuntaje=finalpuntaje/fallas;
-		// TODO Auto-generated method stub
-		return finalpuntaje;
-	}
+	
 	public void IngresarPuntaje(String nombre,int puntaje)
 	{
 		FileWriter fichero = null;
@@ -97,13 +98,5 @@ public class Ranking {
 	        } 
 	 
         }
-	public void mostrarPuntajes()
-	{
-		int a;
-		ObtenerUsuarios();
-		OrdenamientoBurbuja();
-		for(a=0;a<ListaPalabras.size();a++)
-			System.out.println(ListaPalabras.get(a));
-	}
 
 }
