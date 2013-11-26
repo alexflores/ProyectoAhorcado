@@ -11,9 +11,7 @@ import java.util.ArrayList;
 public class Diccionario {
 	
 	public Diccionario()
-	{
-		
-	}
+	{}
 	
 	public boolean ValidarPalabra(String palabra) {
 		boolean resp = true;

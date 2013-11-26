@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import AhorcadoTDD.Diccionario;
 import AhorcadoTDD.Usuario;
 
 public class TestUsuarios {
@@ -21,42 +20,56 @@ Usuario user;
 	
 	@Test
 	public void DevuelveUnMensajeDeExitoSiElUsuarioAhSidoRegistradoSatisfactoriamente() {
+		user = new Usuario("Pablo Alboran", "pablo", "pablo123");
 		String mensajeDeExito = "El Usuario se registro correctamente";
-		assertTrue(mensajeDeExito.equals(user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123")));
+		assertTrue(mensajeDeExito.equals(user.RegistrarUsuario(user)));
 	}
 	
 	@Test
 	public void DevuelveUnMensajeDeErrorSiElLoginYaSeEncuentraRegistrado()
 	{
-		user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123");
+		user = new Usuario("Pablo Alboran", "pablo", "pablo123");
+		user.RegistrarUsuario(user);
+		Usuario user2 = new Usuario("Pablo Alboran", "pablo", "pablo123");
 		String mensajeDeError = "El Id de Usuario (Login) ya se encuentra registrado";
-		assertTrue(mensajeDeError.equals(user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123")));
+		assertTrue(mensajeDeError.equals(user.RegistrarUsuario(user2)));
 	}
 	
 	@Test
 	public void SiElUsuarioEstaRegistradoAlIngresarLoginDevuelveUnMensajeDeInicioDeSession()
 	{
-		user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123");
+		user = new Usuario("Pablo Alboran", "pablo", "pablo123");
+		user.RegistrarUsuario(user);
 		String mensajeDeExito = "Bienvenido Acaba De Iniciar Session";
-		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pablo", "pablo123")));
+		assertTrue(mensajeDeExito.equals(user.IniciarSesion(user)));
 	}
 	
 	@Test
 	public void SiElUsuarioEstaRegistradoAlIngresarLoginIncorrectoDevuelveUnMensajeDeError()
 	{
-		user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123");
+		user = new Usuario("Pablo Alboran", "pabloa", "pablo123");
 		String mensajeDeExito = "Error: Login Incorrecto";
-		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pabloa", "pablo123")));
+		assertTrue(mensajeDeExito.equals(user.IniciarSesion(user)));
 	}
 	
 	@Test
 	public void SiElUsuarioEstaRegistradoAlIngresarPasswordIncorrectoDevuelveUnMensajeDeError()
 	{
-		user.RegistrarUsuario("Pablo Alboran", "pablo", "pablo123");
+		user = new Usuario("Pablo Alboran", "pabloa", "pablo123");
+		user.RegistrarUsuario(user);
+		Usuario user2 = new Usuario("Pablo Alboran", "pabloa", "pablo1234");
 		String mensajeDeExito = "Error: Password Incorrecto";
-		assertTrue(mensajeDeExito.equals(user.IniciarSesion("pablo", "pablo1234")));
+		assertTrue(mensajeDeExito.equals(user.IniciarSesion(user2)));
 	}
 	
-	
-
+	@Test
+	public void SiElUsuarioEstaRegistradoModificaSusDatosCorrectamenteRecibeUnMensajeExitoso()
+	{
+		user = new Usuario("Pablo Alboran", "pablo", "pablo123");
+		user.RegistrarUsuario(user);
+		Usuario nuevoUsuario = new Usuario("Pablo Pedro Paredes Alboran", "pablo", "pablo123");
+		String msg = user.ModificarUsuario(user, nuevoUsuario);
+		String mensajeDeExito = "Los cambios fueron guardados Exitosamente";
+		assertTrue(mensajeDeExito.equals(msg));
+	}
 }

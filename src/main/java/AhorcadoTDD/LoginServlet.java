@@ -22,9 +22,9 @@ public class LoginServlet extends HttpServlet {
 		
 		String login = request.getParameter("login");
 		String pass = request.getParameter("password");
-		
-		String mensaje = user.IniciarSesion(login, pass);
-		
+		user.UsuarioLogin = login;
+		user.UsuarioPassword = pass;
+		String mensaje = user.IniciarSesion(user);
 		
 		out.println("<center><h1>"+mensaje+"</h1></center>");
 		out.println("<br><center><h1><a href=diccionario.html>Jugar<a/></h1></center>");

@@ -1,6 +1,8 @@
 package AhorcadoTDD;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
 
 public class Principal {
@@ -75,8 +77,8 @@ public class Principal {
 		ArrayList<String> resultado=nuevo.ObtenerPalabra();
 		for(int a=0;a<resultado.size();a++){
 			System.out.print(resultado.get(a));
-		}*/
-		//System.out.println(us.getUserLogin(datos));
+		}*/;
+       
 	}
 	
  }

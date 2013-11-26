@@ -20,15 +20,14 @@ public class RegistroUsuarioServlet extends HttpServlet {
 		response.setContentType("text/html");
 		java.io.PrintWriter out = response.getWriter();
 		
-		String nombre = request.getParameter("nombre");
-		String login = request.getParameter("login");
-		String pass = request.getParameter("password");
+		user.UsuarioNombre = request.getParameter("nombre");
+		user.UsuarioLogin = request.getParameter("login");
+		user.UsuarioPassword = request.getParameter("password");
 		
-		String mensaje = user.RegistrarUsuario(nombre, login, pass);
+		
+		String mensaje = user.RegistrarUsuario(user);
 		
 		out.println("<center><h1>"+mensaje+"</h1></center>");
-		//out.println("<center><h1><a href=diccionario.html>Volver<a/></h1></center>");
-		
 		out.println("<center><h1><a href=index.html>Jugar<a/></h1></center>");
 		
 		out.close();
