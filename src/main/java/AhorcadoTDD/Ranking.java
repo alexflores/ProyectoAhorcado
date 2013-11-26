@@ -3,6 +3,8 @@ package AhorcadoTDD;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Ranking {
@@ -64,4 +66,44 @@ public class Ranking {
 			}
 		}
 	}
+
+	public String nuevostring(String nombre, int entero) {
+		// TODO Auto-generated method stub
+		String resultado = null;
+		String enterostring=String.valueOf(entero);
+		resultado=(nombre+" "+enterostring);
+		
+		return resultado;
+	}
+
+	public int puntajetotal(int fallas) {
+		int finalpuntaje=100;
+		finalpuntaje=finalpuntaje/fallas;
+		// TODO Auto-generated method stub
+		return finalpuntaje;
+	}
+	public void IngresarPuntaje(String nombre,int puntaje)
+	{
+		FileWriter fichero = null;
+        PrintWriter pw = null;
+        String palabra=nuevostring(nombre,puntaje);
+	      try{
+	            	fichero = new FileWriter("PruebaRudy.txt", true);
+	            	fichero.write(palabra+"\r\n");
+	       
+	                fichero.close();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        } 
+	 
+        }
+	public void mostrarPuntajes()
+	{
+		int a;
+		ObtenerUsuarios();
+		OrdenamientoBurbuja();
+		for(a=0;a<ListaPalabras.size();a++)
+			System.out.println(ListaPalabras.get(a));
+	}
+
 }

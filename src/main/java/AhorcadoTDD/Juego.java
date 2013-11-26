@@ -1,22 +1,36 @@
 package AhorcadoTDD;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Juego {
-	
+	public int puntaje=0;
     public static final int JUGANDO = 0;
     //Vector de letras jugadas por el jugador
 	private ArrayList<Letra> _JUGADAS;
 	
 	private Palabra _ACTUAL;
 	
-	private int estado;
-	
 	public static final int GANADOR = 1;
 
 	public static final int AHORCADO = 2;
 	
 	public String _RESULTADO = "";
+	
+	public String _CABEZA = "";
+	
+	public String _BRAZO_IZQ = "";
+	
+	public String _CUERPO = "";
+	
+	public String _BRAZO_DER = "";
+	
+	public String _PIERNA_IZQ= "";
+	
+	public String _PIERNA_DER= "";
+	
+	public int cant_error = 0;
 	
 	public void iniciarJuego(String palabra)
 	{
@@ -77,6 +91,66 @@ public class Juego {
 		return _RESULTADO;
 	}
 	
+	public String mostrarCabeza(Letra l, int tam)
+	{	
+		if(!jugarLetra(l) && tam==1)
+		{
+			_CABEZA = "O";
+		}
+		
+		return _CABEZA;
+	}
+	
+	public String mostrarBrazoIzq(Letra l, int tam)
+	{
+		if(!jugarLetra(l) && tam==1)
+		{
+			_BRAZO_IZQ = "/";
+		}
+
+		return _BRAZO_IZQ;
+	}
+	
+	public String mostrarCuerpo(Letra l, int tam)
+	{
+		if(!jugarLetra(l) && tam==1)
+		{
+			_CUERPO = "|";
+		}
+
+		return _CUERPO;
+	}
+	
+	public String mostrarBrazoDer(Letra l, int tam)
+	{
+		if(!jugarLetra(l) && tam==1)
+		{
+			_BRAZO_DER = "\\";
+		}
+
+		return _BRAZO_DER;
+	}
+	
+	public String mostrarPiernaIzq(Letra l, int tam)
+	{
+		if(!jugarLetra(l) && tam==1)
+		{
+			_PIERNA_IZQ = "/";
+		}
+
+		return _PIERNA_IZQ;
+	}
+	
+	public String mostrarPiernaDer(Letra l, int tam)
+	{
+		if(!jugarLetra(l) && tam==1)
+		{
+			_PIERNA_DER = "\\";
+		}
+
+		return _PIERNA_DER;
+	}
+	
 	public Palabra darPalabraActual()
 	{
 		return _ACTUAL;
@@ -92,9 +166,9 @@ public class Juego {
 		return _ACTUAL.darOcurrencias(_JUGADAS);
 	}
 	
-	public int darEstado( )
+	/*public int darEstado( )
     {
         return estado;
-    }
-	
+    }*/
+
 }
