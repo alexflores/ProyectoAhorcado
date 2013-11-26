@@ -14,16 +14,20 @@ public class JuegoServlet extends HttpServlet {
 	Diccionario dic = new Diccionario();
 	String palabra = "sistemas";
 	String frase = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
+	public String pal = "";
 	
 	public JuegoServlet() {
 		dic.AniadirPalabra(palabra, frase);
-		j.iniciarJuego(dic.ObtenerPalabra());
+		pal = "sistemas";
+		//pal = dic.ObtenerPalabra();
+		j.iniciarJuego(pal);
 	}
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		response.setContentType("text/html");
+		String pal = "sistemas";
 		String letrita = request.getParameter("letra");
 		if(letrita == null)
 		{
@@ -118,8 +122,9 @@ public class JuegoServlet extends HttpServlet {
 		out.println("<input type='submit' value='Ingresar'>");
 		out.println("</form>");
 
+
 		out.println("<form action='pistaServlet'>");
-		out.println("<input type='hidden' name='palabraPista'><br>");
+		out.println("<input type='hidden' name='palabraPista' value='pal'><br>");
 		out.println("<input type='submit' value='Pedir Pista Frase'>");
 		out.println("</form>");
 		

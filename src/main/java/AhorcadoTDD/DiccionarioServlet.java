@@ -17,6 +17,7 @@ public class DiccionarioServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html");
 		String palabra = request.getParameter("palabra");
 		String frase = request.getParameter("frase");
 		if(dic.AniadirPalabra(palabra,frase))

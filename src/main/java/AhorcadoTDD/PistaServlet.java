@@ -17,8 +17,9 @@ public class PistaServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html");
 		String palabra = request.getParameter("palabraPista");
-		String pista = dic.ObtenerFraseDadaUnaPalabra(palabra);
+		String pista = dic.ObtenerFraseDadaUnaPalabra("sistemas");
 		if(palabra!= "")
 		{
 			response.getWriter().println("<font size='6' color='green'>Pista: { "+pista+" } </font>");

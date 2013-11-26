@@ -39,4 +39,12 @@
 	<servlet-name>rankingServlet</servlet-name>
 	<url-pattern>/rankingServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+	<servlet-name>pistaServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.PistaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>pistaServlet</servlet-name>
+	<url-pattern>/pistaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
