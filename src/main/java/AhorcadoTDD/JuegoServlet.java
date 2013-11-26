@@ -24,7 +24,7 @@ public class JuegoServlet extends HttpServlet {
 		String letrita = request.getParameter("letra");
 		if(letrita == null)
 		{
-			letrita="acm";
+			letrita="123";
 		}
 		char arr[] = letrita.toCharArray();
 		int tam = arr.length;
@@ -35,12 +35,81 @@ public class JuegoServlet extends HttpServlet {
 		out.println("<body bgcolor=#33ff00>");
 		
 		out.println("<h1>");
-		out.println("AHORCADO");
+		out.println("AHORCADO NIVEL BASICO");
 		out.println("</h1>");
-	    
+		
+		out.println("<table>");
+		out.println("<tr>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("<td> _");
+		out.println("</td>");
+		out.println("<td> _");
+		out.println("</td>");
+		out.println("<td> _");
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td> |");
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("<td>");
+		out.println(j.mostrarCabeza(l,tam));
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td> |");
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("<td>");
+		out.println(j.mostrarBrazoIzq(l,tam));
+		out.println("</td>");
+		out.println("<td>");
+		out.println(j.mostrarCuerpo(l,tam));
+		out.println("</td>");
+		out.println("<td>");
+		out.println(j.mostrarBrazoDer(l,tam));
+		out.println("</td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td> |");
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("<td>");
+		out.println(j.mostrarPiernaIzq(l,tam));
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("<td>");
+		out.println(j.mostrarPiernaDer(l,tam));
+		out.println("</td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td> -");
+		out.println("</td>");
+		out.println("<td> -");
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("<td>");
+		out.println("</td>");
+		out.println("</tr>");
+		out.println("</table>");
+		
 		out.println(j.juego(l, tam));
 		
-		out.println("<br><br>");
+		out.println("<br><br><br><br>");
 		out.println("<form action='juegoServlet'>");
 		out.println("Ingresar una letra: <input type='text' name='letra'><br>");
 		out.println("<input type='submit' value='Ingresar'>");
