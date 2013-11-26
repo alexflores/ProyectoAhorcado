@@ -114,9 +114,11 @@ public class JuegoServlet extends HttpServlet {
 		out.println("Ingresar una letra: <input type='text' name='letra'><br>");
 		out.println("<input type='submit' value='Ingresar'>");
 		out.println("</form>");
+		out.println("<a href = 'infBasico.html' >Cancelar el juego</a>");
 
 		out.println("</body>");
 		out.println("</html>");
+		out.close();
 		
 	}
 }
