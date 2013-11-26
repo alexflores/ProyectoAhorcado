@@ -220,7 +220,7 @@ public ArrayList<String> MostrarPalabrasEnDiccionario() {
 		return ListaPalabras;
 	}
 
-	public String ObtenerFraseDadaUnaPalabra(String palabra, String frase) {
+	public String ObtenerFraseDadaUnaPalabra(String palabra) {
 		File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null; 

@@ -79,7 +79,7 @@ public class TestDiccionario {
 		String frase = "Edificación construida para ser habitada.";
 		diccionario.AniadirPalabra(palabra, frase);
 		String esperado = "Edificación construida para ser habitada.";
-		assertTrue(esperado.equals(diccionario.ObtenerFraseDadaUnaPalabra(palabra, frase)));
+		assertTrue(esperado.equals(diccionario.ObtenerFraseDadaUnaPalabra(palabra)));
 		diccionario.BorrarContenido();
 	}
 	

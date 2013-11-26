@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class JuegoServlet extends HttpServlet {
 	Juego j = new Juego();
+	Diccionario dic = new Diccionario();
+	String palabra = "sistemas";
+	String frase = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
 	
 	public JuegoServlet() {
-		j.iniciarJuego("sistemas");
-
+		dic.AniadirPalabra(palabra, frase);
+		j.iniciarJuego(dic.ObtenerPalabra());
 	}
 	
 	@Override
@@ -114,6 +117,12 @@ public class JuegoServlet extends HttpServlet {
 		out.println("Ingresar una letra: <input type='text' name='letra'><br>");
 		out.println("<input type='submit' value='Ingresar'>");
 		out.println("</form>");
+
+		out.println("<form action='pistaServlet'>");
+		out.println("<input type='hidden' name='palabraPista'><br>");
+		out.println("<input type='submit' value='Pedir Pista Frase'>");
+		out.println("</form>");
+		
 		out.println("<a href = 'infBasico.html' >Cancelar el juego</a>");
 
 		out.println("</body>");
