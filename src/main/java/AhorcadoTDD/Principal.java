@@ -7,7 +7,7 @@ public class Principal {
 	
 	public static void main(String[] args)
 	{
-		Bienvenida b = new Bienvenida();
+		/*Bienvenida b = new Bienvenida();
 		b.bienvenida();
 		boolean r;
 		char ch;
@@ -63,8 +63,20 @@ public class Principal {
 		System.out.println(x);
 		System.out.println(y);
 		System.out.println(z);*/
-		res = j.juego(l3, 1);
-		System.out.println(res);
+		/*res = j.juego(l3, 1);
+		System.out.println(res);*/
+
+		ArrayList<String> lista;
+		Ranking nuevo=new Ranking();
+		//lista=nuevo.ObtenerUsuarios();
+		//System.out.println(lista);
+
+		/*Ranking nuevo= new Ranking();
+		ArrayList<String> resultado=nuevo.ObtenerPalabra();
+		for(int a=0;a<resultado.size();a++){
+			System.out.print(resultado.get(a));
+		}*/
+		//System.out.println(us.getUserLogin(datos));
 	}
 	
  }
