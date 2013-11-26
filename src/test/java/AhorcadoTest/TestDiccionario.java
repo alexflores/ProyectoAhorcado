@@ -21,30 +21,33 @@ public class TestDiccionario {
 	@Test
 	public void AniadirLetraAUnArchivoVacio()
 	{
-		assertEquals(true,diccionario.AniadirPalabra("papayon"));
+		assertEquals(true,diccionario.AniadirPalabra("papayon", ""));
+		diccionario.BorrarContenido();
 	}
 	
 	@Test
 	public void AniadirLetraAlFinalDeUnArchivo()
 	{
 		String palabra = "chuleta";
-		diccionario.AniadirPalabra(palabra);
+		diccionario.AniadirPalabra(palabra, "");
 		assertEquals(palabra,diccionario.LeerUltimaPalabraDelDiccionario());
+		diccionario.BorrarContenido();
 	}
 	
 	@Test
 	public void DevuelveFalseSiLaPalabraAIngresarYaSeEncuentraEnElDiccionario()
 	{
 		String palabra = "macarron";
-		diccionario.AniadirPalabra(palabra);
-		assertEquals(false,diccionario.AniadirPalabra(palabra));
+		diccionario.AniadirPalabra(palabra, "");
+		assertEquals(false,diccionario.AniadirPalabra(palabra, ""));
+		diccionario.BorrarContenido();
 	}
 	
 	@Test
 	public void DevuelveTrueSiLasLetrasDeUnFicheroSonBorradas()
 	{
-		diccionario.AniadirPalabra("palabra1");
-		diccionario.AniadirPalabra("palabra2");
+		diccionario.AniadirPalabra("palabra1", "");
+		diccionario.AniadirPalabra("palabra2", "");
 		assertEquals("palabra2",diccionario.LeerUltimaPalabraDelDiccionario());
 		assertEquals(true, diccionario.BorrarContenido());
 	}
@@ -52,10 +55,10 @@ public class TestDiccionario {
 	@Test
 	public void DevuelveUnaPalabraAleatoriaObtenidaDelDiccionario()
 	{
-		diccionario.AniadirPalabra("paralelepipedo");
-		diccionario.AniadirPalabra("sorpresa");
-		diccionario.AniadirPalabra("chocolate");
-		diccionario.AniadirPalabra("elicoptero");
+		diccionario.AniadirPalabra("paralelepipedo", "");
+		diccionario.AniadirPalabra("sorpresa", "");
+		diccionario.AniadirPalabra("chocolate", "");
+		diccionario.AniadirPalabra("elicoptero", "");
 		String palabra = "";
 		palabra = diccionario.ObtenerPalabra();
 		assertEquals(false, palabra.isEmpty());
@@ -67,6 +70,17 @@ public class TestDiccionario {
 	{
 		String palabra = "palabra invalida";
 		assertEquals(false, diccionario.ValidarPalabra(palabra));
-		
 	}
+	
+	@Test
+	public void AgregarFraseYPalabraYDevolverLaFraseDadaUnaPalabra()
+	{
+		String palabra = "casa";
+		String frase = "Edificación construida para ser habitada.";
+		diccionario.AniadirPalabra(palabra, frase);
+		String esperado = "Edificación construida para ser habitada.";
+		assertTrue(esperado.equals(diccionario.ObtenerFraseDadaUnaPalabra(palabra, frase)));
+		diccionario.BorrarContenido();
+	}
+	
 }

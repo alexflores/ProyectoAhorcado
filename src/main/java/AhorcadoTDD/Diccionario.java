@@ -21,9 +21,7 @@ public class Diccionario {
 		return resp;
 	}
 	
-	public Boolean AniadirPalabra(String palabra) {
-		
-		FileWriter fichero = null;
+	public Boolean AniadirPalabra(String palabra, String frase) {
         PrintWriter pw = null;
 	      
         boolean resp = false;
@@ -33,17 +31,16 @@ public class Diccionario {
 	        {
 	            if(!BuscarPalabraEnDiccionario(palabra))
 	            {
-	            	fichero = new FileWriter("diccionario.txt", true);
-	            	pw = new PrintWriter(fichero);
-	                pw.println(palabra.toLowerCase());
+	            	pw = new PrintWriter(new FileWriter("diccionario.txt", true));
+	                pw.println(palabra.toLowerCase()+"|"+frase);
 	                resp = true;
 	            }
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        } finally {
 	           try {
-	           if (null != fichero)
-	              fichero.close();
+	           if (null != pw)
+	        	   pw.close();
 	           } catch (Exception e2) {
 	              e2.printStackTrace();
 	           }
@@ -68,7 +65,7 @@ public class Diccionario {
          String linea = "";
          
          while((linea = br.readLine())!=null)
-        	 if(palabra.toLowerCase().equals(linea))
+        	 if(palabra.toLowerCase().equals(GetPalabraLinea(linea)))
         	 {
         		 ExistePalabra = true;
         	 }
@@ -85,6 +82,11 @@ public class Diccionario {
 	  return ExistePalabra;
 	}
 
+	private String GetPalabraLinea(String linea) {
+		String[] datosPalara = linea.split("\\|");
+		return datosPalara[0];
+	}
+
 	public String LeerUltimaPalabraDelDiccionario() {
 		
 		  File archivo = null;
@@ -99,7 +101,7 @@ public class Diccionario {
 	         br = new BufferedReader(fr);
 	         String linea = "";
 	         while((linea = br.readLine())!=null)
-	        	 Palabra = linea;
+	        	 Palabra = GetPalabraLinea(linea);
 	      }
 	      catch(Exception e)
 	      {
@@ -155,7 +157,7 @@ public class Diccionario {
 	         br = new BufferedReader(fr);
 	         String linea = "";
 	         while((linea = br.readLine())!=null)
-	        	 ListaPalabras.add(linea);
+	        	 ListaPalabras.add(GetPalabraLinea(linea));
 	      }
 	      catch(Exception e)
 	      {
@@ -174,12 +176,84 @@ public class Diccionario {
 	          }
 	      }
 		
-		return GetPalabra(ListaPalabras);
+		return GetPalabraRandomica(ListaPalabras);
 	}
 
-	private String GetPalabra(ArrayList<String> listaPalabras) {
+	private String GetPalabraRandomica(ArrayList<String> listaPalabras) {
 		int random = (int)(Math.random()*(listaPalabras.size()-1-0+1)+0);
 		return listaPalabras.get(random);
+	}
+	
+public ArrayList<String> MostrarPalabrasEnDiccionario() {
+		
+		File archivo = null;
+	    FileReader fr = null;
+	    BufferedReader br = null;
+	      
+	    ArrayList<String> ListaPalabras = new ArrayList<String>();
+	 
+	    try 
+	    {
+	         archivo = new File ("diccionario.txt");
+	         fr = new FileReader (archivo);
+	         br = new BufferedReader(fr);
+	         String linea = "";
+	         while((linea = br.readLine())!=null)
+	        	 ListaPalabras.add(GetPalabraLinea(linea));
+	    }
+	    catch(Exception e)
+	    {
+	    	e.printStackTrace();
+	    }
+	    finally
+	    {
+	    	try
+	    	{                    
+	    		if( null != fr )  
+	            fr.close();               
+	    	}
+	    	catch (Exception e2)
+	    	{ 
+	    		e2.printStackTrace();
+	    	}
+	    }
+		return ListaPalabras;
+	}
+
+	public String ObtenerFraseDadaUnaPalabra(String palabra, String frase) {
+		File archivo = null;
+	    FileReader fr = null;
+	    BufferedReader br = null; 
+	    String FrasePalabra = "";
+	
+	    try 
+	    {
+	       archivo = new File ("diccionario.txt");
+	       fr = new FileReader (archivo);
+	       br = new BufferedReader(fr);
+	       String linea = "";
+	       
+	       while((linea = br.readLine())!=null)
+	      	 if(palabra.toLowerCase().equals(GetPalabraLinea(linea)))
+	      	 {
+	      		FrasePalabra = GetFraseLinea(linea);
+	      	 }
+	    }catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	       try {
+	       if (null != fr)
+	      	 fr.close();
+	       } catch (Exception e2) {
+	          e2.printStackTrace();
+	       }
+	    }
+	  return FrasePalabra;
+	}
+
+	private String GetFraseLinea(String linea) {
+		String[] datosPalara = linea.split("\\|");
+		return datosPalara[1];
 	}
 
 }
