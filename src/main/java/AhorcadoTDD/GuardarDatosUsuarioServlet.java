@@ -2,6 +2,7 @@ package AhorcadoTDD;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,7 @@ public class GuardarDatosUsuarioServlet extends HttpServlet {
 		java.io.PrintWriter out = response.getWriter();
 		user.UsuarioId = Integer.parseInt(request.getParameter("idUsuario"));
 		user.UsuarioNombre = request.getParameter("nuevoNombre");
-		user.UsuarioLogin = request.getParameter("nuevoLogin'value");
+		user.UsuarioLogin = request.getParameter("nuevoLogin");
 		user.UsuarioPassword = request.getParameter("nuevoPass");
 		
 		String mensaje = user.ModificarUsuario(user);
@@ -38,6 +39,7 @@ public class GuardarDatosUsuarioServlet extends HttpServlet {
 		out.println("<tr><td><input type='submit' value='Aceptar'/></td></tr>");
 		out.println("</table>");
 		out.println("</form>");
+		
 		
 	}
 }

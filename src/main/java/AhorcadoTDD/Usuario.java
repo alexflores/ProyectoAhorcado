@@ -203,6 +203,7 @@ public class Usuario {
 		if(nuevoUsuario.UsuarioId>0&&nuevoUsuario.UsuarioId<=ListaDeUsuarios.size()){
 			String newUser = nuevoUsuario.UsuarioId +"|"+ nuevoUsuario.UsuarioNombre +"|"+ nuevoUsuario.UsuarioLogin +"|"+ nuevoUsuario.UsuarioPassword;
 			ListaDeUsuarios.set(nuevoUsuario.UsuarioId-1, newUser);
+			GuardarListaDeUsuarios(ListaDeUsuarios);
 			mensaje = _MODIFICAR_USUARIO_EXITOSO;
 		}
         return mensaje;
