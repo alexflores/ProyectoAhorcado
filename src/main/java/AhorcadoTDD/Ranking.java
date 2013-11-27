@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Ranking {
@@ -50,9 +49,8 @@ public class Ranking {
 }*/
 
 	public int sacar(String linea) {
-		int resp;
 		String[] campos = linea.split (" "); 
-		return resp=Integer.parseInt(campos[1]);
+		return Integer.parseInt(campos[1]);
 	}
 	public void OrdenamientoBurbuja(){//no tiene test porque es el burbuja...
 		int i,j;
@@ -86,7 +84,6 @@ public class Ranking {
 	public void IngresarPuntaje(String nombre,int puntaje)
 	{
 		FileWriter fichero = null;
-        PrintWriter pw = null;
         String palabra=nuevostring(nombre,puntaje);
 	      try{
 	            	fichero = new FileWriter("PruebaRudy.txt", true);

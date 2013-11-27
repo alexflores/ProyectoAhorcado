@@ -2,6 +2,7 @@ package AhorcadoTDD;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +25,9 @@ public class ModificarUsuarioServlet extends HttpServlet {
 		user.UsuarioPassword = request.getParameter("password");
 		Usuario antiguoUsuario = user.ObtenerUsuarioPorLoginYPassword(user);
 		
+		ArrayList<String> lista = new ArrayList<String>();
+		lista = user.ObtenerListaDeUsuarios();
+		
 		out.println("<form action='guardarDatosUsuarioServlet' method='post'>");
 		out.println("<input type='hidden' name='idUsuario' value="+antiguoUsuario.UsuarioId+">");
 		out.println("Nombre: <input type='text' name='nuevoNombre' value="+antiguoUsuario.UsuarioNombre+"><br><br>");
@@ -33,6 +37,11 @@ public class ModificarUsuarioServlet extends HttpServlet {
 		out.println("</form>");
 		
 		out.println("<center><h1><a href=login.html>Volver<a/></h1></center>");
+		
+		for(int i=0; i<lista.size();i++)
+		{
+			out.println(lista.get(i));
+		}
 		
 		//out.println("<center><h1>"+mensaje+"</h1></center>");
 		//out.println("<br><center><h1><a href=diccionario.html>Jugar<a/></h1></center>");

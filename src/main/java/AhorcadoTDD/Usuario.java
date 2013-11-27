@@ -40,7 +40,9 @@ public class Usuario {
 		this.UsuarioPassword = usuarioPassword;
 	}
 	
-	private ArrayList<String> ObtenerListaDeUsuarios() {
+	// Metodos privadossss ..........................
+	
+	public ArrayList<String> ObtenerListaDeUsuarios() {
 	      BufferedReader br = null; 
 	      ArrayList<String> UserList = new ArrayList<String>();
 	      String linea = "";
@@ -88,6 +90,52 @@ public class Usuario {
         }
 	}
 	
+	private String GenerarIdUsuario() {
+		return Integer.toString(ListaDeUsuarios.size()+1);
+	}
+
+	private boolean ExisteLogin(String usuarioLogin) {
+	      boolean ExisteLogin = false;
+	      for(int i=0; i<ListaDeUsuarios.size(); i++)
+	      {
+	    	  if(usuarioLogin.equals(getUserLogin(ListaDeUsuarios.get(i))))
+	    		  ExisteLogin = true;
+	      }
+		  return ExisteLogin;
+	}
+
+	private boolean ExistePassword(String pass) {
+	      boolean ExistePass = false;
+	      for(int i=0; i<ListaDeUsuarios.size(); i++)
+	      {
+	    	  if(pass.equals(getUserPassword(ListaDeUsuarios.get(i))))
+	    		  ExistePass = true;
+	      }
+		  return ExistePass;
+	}
+	
+	private int getUserId(String linea) {
+		String[] datosUsuario = linea.split("\\|");
+		return Integer.parseInt(datosUsuario[0]);
+	}
+
+	private String getUserNombre(String linea) {
+		String[] datosUsuario = linea.split("\\|");
+		return datosUsuario[1];
+	}
+	
+	private String getUserLogin(String linea) {
+		String[] datosUsuario = linea.split("\\|");
+		return datosUsuario[2];
+	}
+	
+	private String getUserPassword(String linea) {
+		String[] datosUsuario = linea.split("\\|");
+		return datosUsuario[3];
+	}
+	
+	// Metodos Publicoss........
+	
 	public boolean LimpiarArchivoUsuarios() {
 		
 		boolean resp = false;
@@ -118,21 +166,7 @@ public class Usuario {
     	}
         return mensaje;
 	}
-
-	private String GenerarIdUsuario() {
-		return Integer.toString(ListaDeUsuarios.size()+1);
-	}
-
-	private boolean ExisteLogin(String usuarioLogin) {
-	      boolean ExisteLogin = false;
-	      for(int i=0; i<ListaDeUsuarios.size(); i++)
-	      {
-	    	  if(usuarioLogin.equals(getUserLogin(ListaDeUsuarios.get(i))))
-	    		  ExisteLogin = true;
-	      }
-		  return ExisteLogin;
-	}
-
+	
 	public String IniciarSesion(Usuario user) {
 		String mensaje = "";
 		if(ExisteLogin(user.UsuarioLogin)){
@@ -145,16 +179,6 @@ public class Usuario {
 			mensaje = _ERROR_LOGIN_INCORRECTO;
 		}
 		return mensaje;
-	}
-
-	private boolean ExistePassword(String pass) {
-	      boolean ExistePass = false;
-	      for(int i=0; i<ListaDeUsuarios.size(); i++)
-	      {
-	    	  if(pass.equals(getUserPassword(ListaDeUsuarios.get(i))))
-	    		  ExistePass = true;
-	      }
-		  return ExistePass;
 	}
 	
 	public Usuario ObtenerUsuarioPorLoginYPassword(Usuario user)
@@ -172,26 +196,6 @@ public class Usuario {
 	    	  }
 	      }
 		  return usuario;
-	}
-
-	private int getUserId(String linea) {
-		String[] datosUsuario = linea.split("\\|");
-		return Integer.parseInt(datosUsuario[0]);
-	}
-
-	private String getUserNombre(String linea) {
-		String[] datosUsuario = linea.split("\\|");
-		return datosUsuario[1];
-	}
-	
-	private String getUserLogin(String linea) {
-		String[] datosUsuario = linea.split("\\|");
-		return datosUsuario[2];
-	}
-
-	private String getUserPassword(String linea) {
-		String[] datosUsuario = linea.split("\\|");
-		return datosUsuario[3];
 	}
 
 	public String ModificarUsuario(Usuario nuevoUsuario) {

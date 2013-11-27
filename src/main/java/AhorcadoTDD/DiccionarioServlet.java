@@ -18,11 +18,11 @@ public class DiccionarioServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String palabra = request.getParameter("palabra");
-		String frase = request.getParameter("frase");
-		if(dic.AniadirPalabra(palabra,frase))
+		dic.palabraDiccionario = request.getParameter("palabra");
+		dic.fraseDiccionario = request.getParameter("frase");
+		if(dic.AniadirPalabra(dic))
 		{
-			response.getWriter().println("<font size='6' color='green'>La Palabra: { "+palabra+" } fue ingresada Exitosamente</font>");
+			response.getWriter().println("<font size='6' color='green'>La Palabra: { "+dic.palabraDiccionario+" } fue ingresada Exitosamente</font>");
 			response.getWriter().println("<br><br>");
 			response.getWriter().println("<h3>Lista de Palabras: </h3>");
 			response.getWriter().println("<br>");

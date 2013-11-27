@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 public class JuegoServlet extends HttpServlet {
 	Juego j = new Juego();
 	Diccionario dic = new Diccionario();
-	String palabra = "sistemas";
-	String frase = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
 	public String pal = "";
 	
 	public void JuegoServletlala() {
-		dic.AniadirPalabra(palabra, frase);
+		dic.palabraDiccionario = "sistemas";
+		dic.fraseDiccionario = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
+		dic.AniadirPalabra(dic);
 		pal = "sistemas";
 		//pal = dic.ObtenerPalabra();
 		j.iniciarJuego(pal);
