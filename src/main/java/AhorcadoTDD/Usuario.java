@@ -169,6 +169,7 @@ public class Usuario {
 	
 	public String IniciarSesion(Usuario user) {
 		String mensaje = "";
+		ListaDeUsuarios = ObtenerListaDeUsuarios();
 		if(ExisteLogin(user.UsuarioLogin)){
 			if(ExistePassword(user.UsuarioPassword))
 				mensaje = _INICIO_DE_SESION_EXITOSO;
