@@ -35,7 +35,9 @@ public class ModificarUsuarioServlet extends HttpServlet {
 		out.println("<input type='submit' value='Guardar Cambios'>");
 		out.println("</form>");
 		
-		out.println("<center><h1><a href=modificarUsuario.html>Volver<a/></h1></center>");
+		out.println("<form action='login.html' method='post'>");
+		out.println("<input type='submit' value='Cancelar'>");
+		out.println("</form>");
 		
 		for(int i=0; i<lista.size();i++)
 		{

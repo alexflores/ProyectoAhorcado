@@ -34,9 +34,19 @@ public class LoginServlet extends HttpServlet {
 		else
 		{
 			out.println("<center><h1>"+mensaje+"</h1></center>");
-			out.println("<center><h1><a href=juego.Nuevo Juego>Jugar<a/></h1></center>");
-			out.println("<center><h1><a href=juego.html>Puntuaciones<a/></h1></center>");
-			out.println("<center><h1><a href=juego.html>Editar Perfil<a/></h1></center>");
+			out.println("<center><h1><a href=juego.html>Jugar<a/></h1></center>");
+
+			out.println("<center><form method='post' action=''>");
+			out.println("<input type='hidden' name='login' value='"+login+"'>");
+			out.println("<input type='hidden' name='password' value='"+pass+"'>");
+			out.println("<input type='submit' value='Puntuaciones'>");
+			out.println("</form></center>");
+			
+			out.println("<center><form method='post' action='modificarUsuarioServlet'>");
+			out.println("<input type='hidden' name='login' value='"+login+"'>");
+			out.println("<input type='hidden' name='password' value='"+pass+"'>");
+			out.println("<input type='submit' value='Editar Perfil'>");
+			out.println("</form></center>");
 		}
 		
 		//out.println("<center><h1>"+mensaje+"</h1></center>");
