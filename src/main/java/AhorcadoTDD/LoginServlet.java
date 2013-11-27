@@ -26,8 +26,21 @@ public class LoginServlet extends HttpServlet {
 		user.UsuarioPassword = pass;
 		String mensaje = user.IniciarSesion(user);
 		
-		out.println("<center><h1>"+mensaje+"</h1></center>");
-		out.println("<br><center><h1><a href=diccionario.html>Jugar<a/></h1></center>");
+		if(mensaje.equals("Error: Login Incorrecto")||mensaje.equals("Error: Password Incorrecto"))
+		{
+			out.println("<center><h1>"+mensaje+"</h1></center>");
+			out.println("<center><h1><a href=login.html>Volver<a/></h1></center>");
+		}
+		else
+		{
+			out.println("<center><h1>"+mensaje+"</h1></center>");
+			out.println("<center><h1><a href=juego.Nuevo Juego>Jugar<a/></h1></center>");
+			out.println("<center><h1><a href=juego.html>Puntuaciones<a/></h1></center>");
+			out.println("<center><h1><a href=juego.html>Editar Perfil<a/></h1></center>");
+		}
+		
+		//out.println("<center><h1>"+mensaje+"</h1></center>");
+		//out.println("<br><center><h1><a href=diccionario.html>Jugar<a/></h1></center>");
 		
 		out.close();
 		

@@ -16,18 +16,23 @@ public class JuegoServlet extends HttpServlet {
 	String frase = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
 	public String pal = "";
 	
-	public JuegoServlet() {
+	public void JuegoServletlala() {
 		dic.AniadirPalabra(palabra, frase);
 		pal = "sistemas";
 		//pal = dic.ObtenerPalabra();
 		j.iniciarJuego(pal);
+		
 	}
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		response.setContentType("text/html");
-		String pal = "sistemas";
+		
+		//j.
+		
+		//JuegoServletlala();
 		String letrita = request.getParameter("letra");
 		if(letrita == null)
 		{
