@@ -69,8 +69,7 @@ public class JuegoServlet extends HttpServlet {
 		
 		out.println(j.juego(l, tam));
 		
-		out.println("<br><br>");
-		out.println(palabraYFraseObtenida);
+		//out.println(palabraYFraseObtenida);
 		out.println("<br><br>");
 		out.println("<form action='juegoServlet'>");
 		out.println("Ingresar una letra: <input type='text' name='letra'><br>");
