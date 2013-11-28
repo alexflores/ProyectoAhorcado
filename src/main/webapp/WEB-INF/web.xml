@@ -79,4 +79,12 @@
 	<servlet-name>infoJuegoServlet</servlet-name>
 	<url-pattern>/infoJuegoServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+	<servlet-name>buscarServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.BuscarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>buscarServlet</servlet-name>
+	<url-pattern>/buscarServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
