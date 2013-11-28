@@ -28,7 +28,7 @@ public class JuegoServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		response.setContentType("text/html");
-		String palabraYFraseObtenida = "Palabra: { "+pal+" }, Frase: {"+dic.ObtenerFraseDadaUnaPalabra(new Diccionario(pal,""))+" }";
+		String palabraYFraseObtenida = "Palabra: { "+pal+" }, Frase: {"+dic.ObtenerFraseDadaUnaPalabra(new Diccionario(pal,"", ""))+" }";
 		String letrita = request.getParameter("letra");
 		if(letrita == null)
 		{

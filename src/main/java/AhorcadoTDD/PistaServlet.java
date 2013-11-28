@@ -18,7 +18,7 @@ public class PistaServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		String palabra = request.getParameter("palabraPista");
-		String pista = dic.ObtenerFraseDadaUnaPalabra(new Diccionario(palabra,""));
+		String pista = dic.ObtenerFraseDadaUnaPalabra(new Diccionario(palabra,"",""));
 		if(palabra!= "")
 		{
 			response.getWriter().println("<font size='6' color='green'>Pista: { "+pista+" } </font>");

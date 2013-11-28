@@ -12,20 +12,25 @@ public class Diccionario {
 	
 	String palabraDiccionario;
 	String fraseDiccionario;
+	String categoriaDiccionario;
+	
 	public ArrayList<String> ListaDePalabras = ObtenerListaDePalabras();
 	
 	private static final String _PALABRA_POR_DEFECTO = "sistemas";
-	private static final String _FRASE_POR_SESION_DEFECTO = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
+	private static final String _FRASE_POR_DEFECTO = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
+	private static final String _CATEGORIA_POR_DEFECTO = "informática";
 	
 	public Diccionario()
 	{}
 	
-	public Diccionario(String palabra, String frase)
+	public Diccionario(String palabra, String frase, String categoria)
 	{
 		this.palabraDiccionario = palabra;
 		this.fraseDiccionario = frase;
+		this.categoriaDiccionario = categoria;
 	}
-	// Metodos Privados --------------------------------
+	
+	// Métodos Privados --------------------------------------------------------------------------------------
 	
 	private ArrayList<String> ObtenerListaDePalabras() {
 		  ArrayList<String> ListaPalabras = new ArrayList<String>();
@@ -84,14 +89,19 @@ public class Diccionario {
 	  return ExistePalabra;
 	}
 
-	public String GetPalabraLinea(String linea) {
+	private String GetPalabraLinea(String linea) {
 		String[] datosPalara = linea.split("\\|");
 		return datosPalara[0];
 	}
 	
-	public String GetFraseLinea(String linea) {
+	private String GetFraseLinea(String linea) {
 		String[] datosPalara = linea.split("\\|");
 		return datosPalara[1];
+	}
+	
+	private Object GetCategoriaLinea(String linea) {
+		String[] datosPalara = linea.split("\\|");
+		return datosPalara[2];
 	}
 	
 	private boolean ValidarPalabra(String palabra) {
@@ -102,10 +112,9 @@ public class Diccionario {
 		return resp;
 	}
 
-	// Metodos Publicos ---------------------------
+	// Métodos Públicos --------------------------------------------------------------------------------
 	
 	public boolean BorrarContenido() {
-		
 		boolean resp = false;
 		File fichero = new File("diccionario.txt");
 		if (fichero.delete())
@@ -115,7 +124,8 @@ public class Diccionario {
 				    resp = true;
 				  else
 				    resp = false;
-				} catch (IOException ioe) {
+				} 
+			catch (IOException ioe) {
 				  ioe.printStackTrace();
 				}
 		}	 
@@ -126,7 +136,7 @@ public class Diccionario {
         boolean resp = false;
         if(ValidarPalabra(dic.palabraDiccionario)){
             if(!ExistePalabraEnDiccionario(dic.palabraDiccionario)){
-            	String nuevaPalabra = dic.palabraDiccionario.toLowerCase()+"|"+dic.fraseDiccionario.toLowerCase();
+            	String nuevaPalabra = dic.palabraDiccionario.toLowerCase()+"|"+dic.fraseDiccionario.toLowerCase()+"|"+dic.categoriaDiccionario.toLowerCase();
             	ListaDePalabras.add(nuevaPalabra);
             	GuardarListaDePalabras(ListaDePalabras);
                 resp = true;
@@ -149,12 +159,12 @@ public class Diccionario {
 		if(ListaDePalabras.size()==0){
 			Diccionario d = new Diccionario();
 			d.palabraDiccionario = _PALABRA_POR_DEFECTO;
-			d.fraseDiccionario = _FRASE_POR_SESION_DEFECTO;
+			d.fraseDiccionario = _FRASE_POR_DEFECTO;
+			d.categoriaDiccionario = _CATEGORIA_POR_DEFECTO;
 			AniadirPalabra(d);
 			palabra = d.palabraDiccionario;
 		}
-		else
-		{
+		else{
 			int random = (int)(Math.random()*(ListaDePalabras.size()-1-0+1)+0);
 			palabra = GetPalabraLinea(ListaDePalabras.get(random));
 		}
@@ -169,19 +179,27 @@ public class Diccionario {
 	}
 
 	public String ObtenerFraseDadaUnaPalabra(Diccionario dic) {
-		
-		System.out.println("Palabra: "+dic.palabraDiccionario);
-		System.out.println("Palabra: "+dic.fraseDiccionario);
 	    String palabraMasFrase = "";
 		String FrasePalabra = "";
-	    for(int i=0; i<ListaDePalabras.size(); i++)
-	    {
+	    for(int i=0; i<ListaDePalabras.size(); i++){
 	    	palabraMasFrase = ListaDePalabras.get(i);
 	    	if(dic.palabraDiccionario.toLowerCase().equals(GetPalabraLinea(palabraMasFrase))){
 	      		FrasePalabra = GetFraseLinea(palabraMasFrase);
 	      	 }
 	    }
 	    return FrasePalabra;
+	}
+
+	public String ObtenerPalabraDadaUnaCategoria(Diccionario diccionario) {
+		String palabraMasFrase = "";
+		String categoriaPalabra = "";
+	    for(int i=0; i<ListaDePalabras.size(); i++){
+	    	palabraMasFrase = ListaDePalabras.get(i);
+	    	if(diccionario.categoriaDiccionario.toLowerCase().equals(GetCategoriaLinea(palabraMasFrase))){
+	    		categoriaPalabra = GetPalabraLinea(palabraMasFrase);
+	      	 }
+	    }
+	    return categoriaPalabra;
 	}
 }
 
