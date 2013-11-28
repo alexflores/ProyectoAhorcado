@@ -21,7 +21,6 @@ public class TestJuego {
 	public void devuelveTrueSiLaLetraJugadaPerteneceALaPalabra() {
 
 		Letra l = new Letra('s');
-		//j.iniciarJuego("sistemas");
 		assertEquals(true,j.jugarLetra(l));
 	}
 	
@@ -40,7 +39,6 @@ public class TestJuego {
 	public void devuelveIncorrectoSiLaLetraJugadaNoPerteneceALaPalabra()
 	{
 		Letra l = new Letra('k');
-		//j.iniciarJuego("sistemas");
 		assertEquals("Incorrecto!!!",j.juego(l, 1));
 	}
 

@@ -16,9 +16,9 @@ public class Juego {
 	
 	public String _RESULTADO = "";
 	
-	public String _CABEZA = "";
+	public String _CUERPITO = "";
 	
-	public String _BRAZO_IZQ = "";
+	/*public String _BRAZO_IZQ = "";
 	
 	public String _CUERPO = "";
 	
@@ -26,9 +26,9 @@ public class Juego {
 	
 	public String _PIERNA_IZQ= "";
 	
-	public String _PIERNA_DER= "";
+	public String _PIERNA_DER= "";*/
 	
-	public int cant_error = 0;
+	public int cant_error = 1;
 	
 	public void iniciarJuego(String palabra)
 	{
@@ -89,17 +89,30 @@ public class Juego {
 		return _RESULTADO;
 	}
 	
-	public String mostrarCabeza(Letra l, int tam)
+	public String mostrarMuñequito()
 	{	
-		if(!jugarLetra(l) && tam==1)
-		{
-			_CABEZA = "O";
-		}
-		
-		return _CABEZA;
+		//_CUERPITO = new String();
+		switch(cant_error) {
+            case 1:  _CUERPITO = "O\n";
+                     break;
+            case 2:  _CUERPITO = "/\n";
+                     break;
+            case 3:  _CUERPITO = "|\n";
+                     break;
+            case 4:  _CUERPITO = "\\\n";
+                     break;
+            case 5:  _CUERPITO = "/\n";
+                     break;
+            case 6:  _CUERPITO = "\\\n";
+                     break;
+            default: _CUERPITO = "AHORCADO!!!";
+                     break;
+        }
+		cant_error++;
+		return _CUERPITO;
 	}
 	
-	public String mostrarBrazoIzq(Letra l, int tam)
+	/*public String mostrarBrazoIzq(Letra l, int tam)
 	{
 		if(!jugarLetra(l) && tam==1)
 		{
@@ -147,7 +160,7 @@ public class Juego {
 		}
 
 		return _PIERNA_DER;
-	}
+	}*/
 	
 	public Palabra darPalabraActual()
 	{
@@ -162,6 +175,11 @@ public class Juego {
 	public ArrayList<Letra> darOcurrencias(ArrayList<Letra> _JUGADAS)
 	{
 		return _ACTUAL.darOcurrencias(_JUGADAS);
+	}
+	
+	public void reiniciarJuego()
+	{
+		_JUGADAS = new ArrayList<Letra>();
 	}
 	
 	/*public int darEstado( )

@@ -48,9 +48,17 @@
 	<url-pattern>/pistaServlet</url-pattern>
   </servlet-mapping>
   <servlet>
+	<servlet-name>nivelBasicoServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.NivelBasicoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>nivelBasicoServlet</servlet-name>
+	<url-pattern>/nivelBasicoServlet</url-pattern>
+</servlet-mapping>
+ <servlet>
 	<servlet-name>modificarUsuarioServlet</servlet-name>
 	<servlet-class>AhorcadoTDD.ModificarUsuarioServlet</servlet-class>
-  </servlet>
+ </servlet>
   <servlet-mapping>
 	<servlet-name>modificarUsuarioServlet</servlet-name>
 	<url-pattern>/modificarUsuarioServlet</url-pattern>
