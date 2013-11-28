@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		//out.println("<center><h1>"+mensaje+"</h1></center>");
-		//out.println("<br><center><h1><a href=diccionario.html>Jugar<a/></h1></center>");
+		out.println("<br><center><h1><a href=index.html>Salir<a/></h1></center>");
 		
 		out.close();
 		

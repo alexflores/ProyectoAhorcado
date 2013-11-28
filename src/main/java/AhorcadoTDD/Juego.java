@@ -23,7 +23,7 @@ public class Juego {
 	
 	public String _CUERPITO = "";
 	
-	private static final String _NIVEL_BASICO = "Básico";
+	private static final String _NIVEL_BASICO = "Basico";
 	private static final int _PISTAS_BASICO = 6;
 	private static final int _ERRORES_POSIBLES_BASICO = 6;
 	

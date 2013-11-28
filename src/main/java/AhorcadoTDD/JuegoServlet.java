@@ -15,11 +15,8 @@ public class JuegoServlet extends HttpServlet {
 	public String pal = "";
 	
 	public JuegoServlet() {
-		dic.palabraDiccionario = "sistemas";
-		dic.fraseDiccionario = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
-		dic.AniadirPalabra(dic);
-		pal = dic.ObtenerPalabra();
-		j.iniciarJuego(pal);
+		//pal = dic.ObtenerPalabra();
+		//j.iniciarJuego(pal);
 		
 	}
 	
@@ -28,6 +25,10 @@ public class JuegoServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		response.setContentType("text/html");
+		String categoria = request.getParameter("categoriaSeleccionada");
+		pal = dic.ObtenerPalabraDadaUnaCategoria(new Diccionario("","",categoria));
+		j.iniciarJuego(pal);
+		
 		String palabraFraseYCategoriaObtenida = "Palabra: { "+pal+" }, Frase: {"+dic.ObtenerFraseDadaUnaPalabra(new Diccionario(pal,"", ""))+" }";
 
 		String resetear = new String();

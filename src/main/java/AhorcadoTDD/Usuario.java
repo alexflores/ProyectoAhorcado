@@ -162,7 +162,7 @@ public class Usuario {
     	    String nuevoUsuario = idUsuario + "|" + user.UsuarioNombre + "|" + user.UsuarioLogin + "|" + user.UsuarioPassword;
     	    ListaDeUsuarios.add(nuevoUsuario);
     		GuardarListaDeUsuarios(ListaDeUsuarios);
-            mensaje = _REGISTRO_EXITOSO;
+            mensaje = getRegistroExitoso();
     	}
         return mensaje;
 	}
@@ -208,6 +208,10 @@ public class Usuario {
 			mensaje = _MODIFICAR_USUARIO_EXITOSO;
 		}
         return mensaje;
+	}
+
+	public static String getRegistroExitoso() {
+		return _REGISTRO_EXITOSO;
 	}
 	
 	

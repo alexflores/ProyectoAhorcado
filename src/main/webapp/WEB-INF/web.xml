@@ -71,4 +71,12 @@
 	<servlet-name>guardarDatosUsuarioServlet</servlet-name>
 	<url-pattern>/guardarDatosUsuarioServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+	<servlet-name>infoJuegoServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.InfoJuegoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>infoJuegoServlet</servlet-name>
+	<url-pattern>/infoJuegoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

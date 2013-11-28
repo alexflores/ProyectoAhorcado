@@ -24,16 +24,19 @@ public class RegistroUsuarioServlet extends HttpServlet {
 		user.UsuarioLogin = request.getParameter("login");
 		user.UsuarioPassword = request.getParameter("password");
 		
-		
 		String mensaje = user.RegistrarUsuario(user);
-		
 		out.println("<center><h1>"+mensaje+"</h1></center>");
-		out.println("<center><h1><a href=index.html>Jugar<a/></h1></center>");
 		
+		if(mensaje.equals(Usuario.getRegistroExitoso())){
+			out.println("<center><form method='post' action='loginServlet'>");
+			out.println("<input type='hidden' name='login' value='"+user.UsuarioLogin+"'>");
+			out.println("<input type='hidden' name='password' value='"+user.UsuarioPassword+"'>");
+			out.println("<input type='submit' value='Jugar'>");
+			out.println("</form></center>");
+		}
+		else{
+			out.println("<center><h1><a href=registroUsuario.html>Volver<a/></h1></center>");
+		}
 		out.close();
-		
-		
-		
-		
 	}
 }
