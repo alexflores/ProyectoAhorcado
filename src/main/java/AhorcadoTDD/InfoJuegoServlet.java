@@ -19,7 +19,7 @@ public class InfoJuegoServlet extends HttpServlet {
 		response.setContentType("text/html");
 		java.io.PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println("<body background='mifondo.jpg'");
+		out.println("<body background='mifondo.jpg'>");
 		Juego game = new Juego();
 		//Usuario user = new Usuario();
 		Diccionario dictionary = new Diccionario();
@@ -57,6 +57,9 @@ public class InfoJuegoServlet extends HttpServlet {
 		out.println("<input type='submit' value='Jugar'/>");
 		out.println("</form>");
 		out.println("<center><h4><a href=juego.html>Volver</a></h4></center>");
+		out.println("<body>");
+		out.println("</html>");
+		
 		out.close();
 	}
 }

@@ -20,7 +20,7 @@ public class GuardarDatosUsuarioServlet extends HttpServlet {
 		response.setContentType("text/html");
 		java.io.PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println("<body background='mifondo.jpg'");
+		out.println("<body background='mifondo.jpg'>");
 		user.UsuarioId = Integer.parseInt(request.getParameter("idUsuario"));
 		user.UsuarioNombre = request.getParameter("nuevoNombre");
 		user.UsuarioLogin = request.getParameter("nuevoLogin");

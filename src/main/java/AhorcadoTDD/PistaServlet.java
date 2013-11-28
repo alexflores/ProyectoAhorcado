@@ -20,7 +20,7 @@ public class PistaServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println("<body background='mifondo.jpg'");	
+		out.println("<body background='mifondo.jpg'>");	
 		String palabra = request.getParameter("palabraPista");
 		String pista = dic.ObtenerFraseDadaUnaPalabra(new Diccionario(palabra,"",""));
 		if(palabra!= "")

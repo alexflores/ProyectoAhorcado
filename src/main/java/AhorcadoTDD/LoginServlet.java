@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html");
 		java.io.PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println("<body background='mifondo.jpg'");
+		out.println("<body background='mifondo.jpg'>");
 		Usuario user = new Usuario();
 		
 		String login = request.getParameter("login");

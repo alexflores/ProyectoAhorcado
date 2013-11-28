@@ -21,7 +21,7 @@ public class RegistroUsuarioServlet extends HttpServlet {
 		java.io.PrintWriter out = response.getWriter();
 		
 		out.println("<html>");
-		out.println("<body background='mifondo.jpg'");
+		out.println("<body background='mifondo.jpg'>");
 		
 		user.UsuarioNombre = request.getParameter("nombre");
 		user.UsuarioLogin = request.getParameter("login");
