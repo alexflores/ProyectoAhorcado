@@ -1,14 +1,24 @@
 <html>
-<body bgcolor=#33ff00>
+<body background="mifondo.jpg">
 <h1>Ingresar Una Palabra al Diccionario: </h1>
 
- <form action="diccionarioServlet">
- 	Palabra: <input type="text" name="palabra"><br><br>
- 	Frase: <textarea name="frase" rows="" cols=""></textarea><br>
- 	Categoría: <input type="text" name="categoria"><br><br>
-	<input type="submit" value="Aniadir Palabra" >
+<table align="center">
+   <form action="diccionarioServlet">
+   
+ 	<tr><td>Palabra:</td> <td><input type="text" name="palabra"></td></tr><br><br>	
+
+	<tr>
+ 	<td>Frase:</td> <td><textarea name="frase" rows="" cols=""></textarea></td></tr><br>
+	
+	<tr>
+ 	<td>Categoría: </td> <td><input type="text" name="categoria"></td></tr><br><br>
+	
+</table>
+	<br>
+	<center><input type="submit" value="Aniadir Palabra" ></center>
   </form>
-  <a href=index.html>Volver</a>
+  <br>
+  <center><a href=index.html >Volver</a></center>
   
   </body>
 </html>

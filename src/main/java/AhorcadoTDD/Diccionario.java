@@ -191,6 +191,7 @@ public class Diccionario {
 	}
 
 	public String ObtenerPalabraDadaUnaCategoria(Diccionario diccionario) {
+		ListaDePalabras = ObtenerListaDePalabras();
 		String palabraMasFrase = "";
 		String categoriaPalabra = "";
 	    for(int i=0; i<ListaDePalabras.size(); i++){

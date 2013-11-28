@@ -46,11 +46,11 @@ public class InfoJuegoServlet extends HttpServlet {
 		
 		out.println("<form method='post' action='juegoServlet'>");
 		out.println("<label>Categoria:</label>");
-		out.println("<select>");
+		out.println("<select name='categoriaSeleccionada'>");
 		for(int i=0; i<ListaCategorias.size(); i++)
 		{
 			String categoria = ListaCategorias.get(i);
-			out.println("<option name='categoriaSeleccionada' value='"+categoria+"'>"+categoria+"</option>");
+			out.println("<option value='"+categoria+"'>"+categoria+"</option>");
 		}
 		out.println("</select>");
 		out.println("<input type='submit' value='Jugar'/>");

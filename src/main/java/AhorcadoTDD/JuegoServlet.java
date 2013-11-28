@@ -15,8 +15,8 @@ public class JuegoServlet extends HttpServlet {
 	public String pal = "";
 	
 	public JuegoServlet() {
-		//pal = dic.ObtenerPalabra();
-		//j.iniciarJuego(pal);
+		pal = dic.ObtenerPalabraDadaUnaCategoria(new Diccionario("","","informática"));
+		j.iniciarJuego(pal);
 		
 	}
 	
@@ -26,8 +26,8 @@ public class JuegoServlet extends HttpServlet {
 		
 		response.setContentType("text/html");
 		String categoria = request.getParameter("categoriaSeleccionada");
-		pal = dic.ObtenerPalabraDadaUnaCategoria(new Diccionario("","",categoria));
-		j.iniciarJuego(pal);
+		//pal = dic.ObtenerPalabraDadaUnaCategoria(new Diccionario("","",categoria));
+		//j.iniciarJuego(pal);
 		
 		String palabraFraseYCategoriaObtenida = "Palabra: { "+pal+" }, Frase: {"+dic.ObtenerFraseDadaUnaPalabra(new Diccionario(pal,"", ""))+" }";
 
@@ -54,7 +54,7 @@ public class JuegoServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		out.println("<html>");
-		out.println("<body bgcolor=#33ff00>");	    	
+		out.println("<body background='mifondo.jpg'");	    	
 		out.println("<h1>");
 		out.println("AHORCADO NIVEL BASICO<br>");
 		out.println("</h1>");
