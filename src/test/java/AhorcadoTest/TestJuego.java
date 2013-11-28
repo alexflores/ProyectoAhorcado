@@ -41,5 +41,19 @@ public class TestJuego {
 		Letra l = new Letra('k');
 		assertEquals("Incorrecto!!!",j.juego(l, 1));
 	}
+	
+	@Test
+	public void DadoUnNivelDevolverLaInfoDelNivel()
+	{
+		String nivelEsperado = "Intermedio";
+		int pistasEsperado = 4;
+		int erroresEsperado = 4;
+		Juego infoJuego = j.ObtenerInformacionDeJuegoPorNivel(new Juego(nivelEsperado)); 
+		
+		assertEquals(nivelEsperado, infoJuego.nivelJuego);
+		assertEquals(pistasEsperado, infoJuego.pistasEnJuego);
+		assertEquals(erroresEsperado, infoJuego.erroresEnJuego);
+		
+	}
 
 }

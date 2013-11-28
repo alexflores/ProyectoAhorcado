@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class Juego {
 	public int puntaje=0;
+	
+	public String nivelJuego;
+	public int pistasEnJuego;
+	public int erroresEnJuego;
+	
     public static final int JUGANDO = 0;
     //Vector de letras jugadas por el jugador
 	private ArrayList<Letra> _JUGADAS;
@@ -18,6 +23,24 @@ public class Juego {
 	
 	public String _CUERPITO = "";
 	
+	private static final String _NIVEL_BASICO = "Básico";
+	private static final int _PISTAS_BASICO = 6;
+	private static final int _ERRORES_POSIBLES_BASICO = 6;
+	
+	private static final String _NIVEL_INTERMEDIO = "Intermedio";
+	private static final int _PISTAS_INTERMEDIO = 4;
+	private static final int _ERRORES_POSIBLES_INTERMEDIO = 4;
+	
+	private static final String _NIVEL_AVANZADO = "Avanzado";
+	private static final int _PISTAS_AVANZADO = 2;
+	private static final int _ERRORES_POSIBLES_AVANZADO = 2;
+	
+	public Juego(){}
+	
+	public Juego(String nivel)
+	{
+		this.nivelJuego = nivel;
+	}
 	/*public String _BRAZO_IZQ = "";
 	
 	public String _CUERPO = "";
@@ -112,6 +135,7 @@ public class Juego {
 		return _CUERPITO;
 	}
 	
+	
 	/*public String mostrarBrazoIzq(Letra l, int tam)
 	{
 		if(!jugarLetra(l) && tam==1)
@@ -180,6 +204,26 @@ public class Juego {
 	public void reiniciarJuego()
 	{
 		_JUGADAS = new ArrayList<Letra>();
+	}
+
+	public Juego ObtenerInformacionDeJuegoPorNivel(Juego juego) {
+		Juego infoGame = new Juego();
+		if(juego.nivelJuego.equals(_NIVEL_BASICO)){
+			infoGame.nivelJuego = _NIVEL_BASICO;
+			infoGame.pistasEnJuego = _PISTAS_BASICO;
+			infoGame.erroresEnJuego = _ERRORES_POSIBLES_BASICO;
+		}
+		else if(juego.nivelJuego.equals(_NIVEL_INTERMEDIO)){
+			infoGame.nivelJuego = _NIVEL_INTERMEDIO;
+			infoGame.pistasEnJuego = _PISTAS_INTERMEDIO;
+			infoGame.erroresEnJuego = _ERRORES_POSIBLES_INTERMEDIO;
+		}
+		else{
+			infoGame.nivelJuego = _NIVEL_AVANZADO;
+			infoGame.pistasEnJuego = _PISTAS_AVANZADO;
+			infoGame.erroresEnJuego = _ERRORES_POSIBLES_AVANZADO;
+		}
+		return infoGame;
 	}
 	
 	/*public int darEstado( )

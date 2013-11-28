@@ -99,7 +99,7 @@ public class Diccionario {
 		return datosPalara[1];
 	}
 	
-	private Object GetCategoriaLinea(String linea) {
+	private String GetCategoriaLinea(String linea) {
 		String[] datosPalara = linea.split("\\|");
 		return datosPalara[2];
 	}
@@ -200,6 +200,17 @@ public class Diccionario {
 	      	 }
 	    }
 	    return categoriaPalabra;
+	}
+
+	public ArrayList<String> ObtenerCategoriasEnDiccionario() {
+		ListaDePalabras = ObtenerListaDePalabras();
+		ArrayList<String> ListaCategorias = new ArrayList<String>();
+		String palabra = "";
+	    for(int i=0; i<ListaDePalabras.size(); i++){
+	    	palabra = ListaDePalabras.get(i);
+	    	ListaCategorias.add(GetCategoriaLinea(palabra));
+	    }
+	    return ListaCategorias;
 	}
 }
 
