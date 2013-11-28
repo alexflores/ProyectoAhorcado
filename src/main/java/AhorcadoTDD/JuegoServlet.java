@@ -79,6 +79,7 @@ public class JuegoServlet extends HttpServlet {
 
 		out.println("<form action='pistaServlet' method='post'>");
 		out.println("<input type='hidden' name='palabraPista' value='"+pal+"'><br>");
+		out.println("<input type='hidden' name='categoriaSeleccionada' value='"+categoria+"'><br>");
 		out.println("<input type='submit' value='Pedir Pista Frase'>");
 		out.println("</form>");
 		

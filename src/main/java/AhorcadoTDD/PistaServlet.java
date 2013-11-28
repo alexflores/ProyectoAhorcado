@@ -22,6 +22,7 @@ public class PistaServlet extends HttpServlet {
 		out.println("<html>");
 		out.println("<body background='mifondo.jpg'>");	
 		String palabra = request.getParameter("palabraPista");
+		String categoria = request.getParameter("categoriaSeleccionada");
 		String pista = dic.ObtenerFraseDadaUnaPalabra(new Diccionario(palabra,"",""));
 		if(palabra!= "")
 		{
@@ -29,8 +30,13 @@ public class PistaServlet extends HttpServlet {
 			response.getWriter().println("<br><br>");
 		}
 		
-		//output your page here
-		out.println("<center><h1><a href=juegoServlet>Volver<a/></h1></center>");
+		
+		out.println("<form action='juegoServlet' method='post'>");
+		out.println("<input type='hidden' name='categoriaSeleccionada' value='"+categoria+"'><br>");
+		out.println("<input type='submit' value='Volver'>");
+		out.println("</form>");
+		
+		//out.println("<center><h1><a href=juegoServlet>Volver<a/></h1></center>");
 		
 		out.close();
 		
