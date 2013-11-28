@@ -54,5 +54,21 @@
   <servlet-mapping>
 	<servlet-name>nivelBasicoServlet</servlet-name>
 	<url-pattern>/nivelBasicoServlet</url-pattern>
+</servlet-mapping>
+ <servlet>
+	<servlet-name>modificarUsuarioServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.ModificarUsuarioServlet</servlet-class>
+ </servlet>
+  <servlet-mapping>
+	<servlet-name>modificarUsuarioServlet</servlet-name>
+	<url-pattern>/modificarUsuarioServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+	<servlet-name>guardarDatosUsuarioServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.GuardarDatosUsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>guardarDatosUsuarioServlet</servlet-name>
+	<url-pattern>/guardarDatosUsuarioServlet</url-pattern>
   </servlet-mapping>
 </web-app>

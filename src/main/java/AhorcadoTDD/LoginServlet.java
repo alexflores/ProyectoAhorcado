@@ -26,8 +26,31 @@ public class LoginServlet extends HttpServlet {
 		user.UsuarioPassword = pass;
 		String mensaje = user.IniciarSesion(user);
 		
-		out.println("<center><h1>"+mensaje+"</h1></center>");
-		out.println("<br><center><h1><a href=diccionario.html>Jugar<a/></h1></center>");
+		if(mensaje.equals("Error: Login Incorrecto")||mensaje.equals("Error: Password Incorrecto"))
+		{
+			out.println("<center><h1>"+mensaje+"</h1></center>");
+			out.println("<center><h1><a href=login.html>Volver<a/></h1></center>");
+		}
+		else
+		{
+			out.println("<center><h1>"+mensaje+"</h1></center>");
+			out.println("<center><h1><a href=juego.html>Jugar<a/></h1></center>");
+
+			out.println("<center><form method='post' action=''>");
+			out.println("<input type='hidden' name='login' value='"+login+"'>");
+			out.println("<input type='hidden' name='password' value='"+pass+"'>");
+			out.println("<input type='submit' value='Puntuaciones'>");
+			out.println("</form></center>");
+			
+			out.println("<center><form method='post' action='modificarUsuarioServlet'>");
+			out.println("<input type='hidden' name='login' value='"+login+"'>");
+			out.println("<input type='hidden' name='password' value='"+pass+"'>");
+			out.println("<input type='submit' value='Editar Perfil'>");
+			out.println("</form></center>");
+		}
+		
+		//out.println("<center><h1>"+mensaje+"</h1></center>");
+		//out.println("<br><center><h1><a href=diccionario.html>Jugar<a/></h1></center>");
 		
 		out.close();
 		

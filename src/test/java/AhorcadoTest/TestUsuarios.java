@@ -2,6 +2,7 @@ package AhorcadoTest;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,9 +13,13 @@ public class TestUsuarios {
 Usuario user;
 	
 	@Before
-	public void initObjects()
-	{
+	public void setUp() throws Exception {
 		user = new Usuario();
+		user.LimpiarArchivoUsuarios();
+	}
+
+	@After
+	public void tearDown() throws Exception {
 		user.LimpiarArchivoUsuarios();
 	}
 	
@@ -67,8 +72,10 @@ Usuario user;
 	{
 		user = new Usuario("Pablo Alboran", "pablo", "pablo123");
 		user.RegistrarUsuario(user);
+		Usuario usuario = user.ObtenerUsuarioPorLoginYPassword(user);
 		Usuario nuevoUsuario = new Usuario("Pablo Pedro Paredes Alboran", "pablo", "pablo123");
-		String msg = user.ModificarUsuario(user, nuevoUsuario);
+		nuevoUsuario.UsuarioId = usuario.UsuarioId;
+		String msg = user.ModificarUsuario(nuevoUsuario);
 		String mensajeDeExito = "Los cambios fueron guardados Exitosamente";
 		assertTrue(mensajeDeExito.equals(msg));
 	}

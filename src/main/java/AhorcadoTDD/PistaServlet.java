@@ -2,7 +2,6 @@ package AhorcadoTDD;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +18,7 @@ public class PistaServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		String palabra = request.getParameter("palabraPista");
-		String pista = dic.ObtenerFraseDadaUnaPalabra("sistemas");
+		String pista = dic.ObtenerFraseDadaUnaPalabra(new Diccionario("sistemas",""));
 		if(palabra!= "")
 		{
 			response.getWriter().println("<font size='6' color='green'>Pista: { "+pista+" } </font>");

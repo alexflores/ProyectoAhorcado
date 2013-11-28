@@ -12,26 +12,33 @@ import javax.servlet.http.HttpServletResponse;
 public class JuegoServlet extends HttpServlet {
 	Juego j = new Juego();
 	Diccionario dic = new Diccionario();
-	String palabra = "sistemas";
-	String frase = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
 	public String pal = "";
 	
 	public JuegoServlet() {
-		dic.AniadirPalabra(palabra, frase);
+		dic.palabraDiccionario = "sistemas";
+		dic.fraseDiccionario = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
+		dic.AniadirPalabra(dic);
 		pal = "sistemas";
-		//pal = dic.ObtenerPalabra();
 		j.iniciarJuego(pal);
+		
 	}
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		response.setContentType("text/html");
+
 		String resetear = new String();
-		resetear="";
+		resetear="restart";
+
 		String letrita = request.getParameter("letra");
 		resetear = request.getParameter("resetear");
-	
+		
+		if(resetear == null && letrita == null)
+		{
+		    j.reiniciarJuego();
+		}
 		
 		if(letrita == null)
 		{
@@ -41,12 +48,6 @@ public class JuegoServlet extends HttpServlet {
 		char arr[] = letrita.toCharArray();
 		int tam = arr.length;
 		Letra l = new Letra(arr[0]);
-		
-		if(resetear != "")
-		{
-		    j.reiniciarJuego();
-		    resetear="";
-		}
 		
 		PrintWriter out = response.getWriter();
 		
