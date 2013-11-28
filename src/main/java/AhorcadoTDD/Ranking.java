@@ -48,7 +48,7 @@ public class Ranking {
 	return finalpuntaje;
 }*/
 
-	public int sacar(String linea) {
+	private int sacar(String linea) {
 		String[] campos = linea.split (" "); 
 		return Integer.parseInt(campos[1]);
 	}
@@ -71,7 +71,7 @@ public class Ranking {
 		}
 	}
 
-	public String nuevostring(String nombre, int entero) {
+	private String nuevostring(String nombre, int entero) {
 		// TODO Auto-generated method stub
 		String resultado = null;
 		String enterostring=String.valueOf(entero);
@@ -95,5 +95,11 @@ public class Ranking {
 	        } 
 	 
         }
+	public String sacarNombre(String jugadorYpuntaje)
+	{
+		String nombre;
+		String[] campos = jugadorYpuntaje.split (" "); 
+		return (campos[0]);	
+	}
 
 }
