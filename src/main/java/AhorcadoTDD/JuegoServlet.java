@@ -27,92 +27,42 @@ public class JuegoServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String pal = "sistemas";
+		String resetear = new String();
+		resetear="";
 		String letrita = request.getParameter("letra");
+		resetear = request.getParameter("resetear");
+	
+		
 		if(letrita == null)
 		{
 			letrita="123";
+			
 		}
 		char arr[] = letrita.toCharArray();
 		int tam = arr.length;
 		Letra l = new Letra(arr[0]);
 		
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<body bgcolor=#33ff00>");
+		if(resetear != "")
+		{
+		    j.reiniciarJuego();
+		    resetear="";
+		}
 		
+		PrintWriter out = response.getWriter();
+		
+		out.println("<html>");
+		out.println("<body bgcolor=#33ff00>");	    	
 		out.println("<h1>");
-		out.println("AHORCADO NIVEL BASICO");
+		out.println("AHORCADO NIVEL BASICO<br>");
 		out.println("</h1>");
 		
-		out.println("<table>");
-		out.println("<tr>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("<td> _");
-		out.println("</td>");
-		out.println("<td> _");
-		out.println("</td>");
-		out.println("<td> _");
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("</tr>");
-		out.println("<tr>");
-		out.println("<td> |");
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("<td>");
-		out.println(j.mostrarCabeza(l,tam));
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("</tr>");
-		out.println("<tr>");
-		out.println("<td> |");
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("<td>");
-		out.println(j.mostrarBrazoIzq(l,tam));
-		out.println("</td>");
-		out.println("<td>");
-		out.println(j.mostrarCuerpo(l,tam));
-		out.println("</td>");
-		out.println("<td>");
-		out.println(j.mostrarBrazoDer(l,tam));
-		out.println("</td>");
-		out.println("</tr>");
-		out.println("<tr>");
-		out.println("<td> |");
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("<td>");
-		out.println(j.mostrarPiernaIzq(l,tam));
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("<td>");
-		out.println(j.mostrarPiernaDer(l,tam));
-		out.println("</td>");
-		out.println("</tr>");
-		out.println("<tr>");
-		out.println("<td> -");
-		out.println("</td>");
-		out.println("<td> -");
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("<td>");
-		out.println("</td>");
-		out.println("</tr>");
-		out.println("</table>");
+		out.println("<h1>");
+        if(!j.jugarLetra(l) && tam==1)
+        {
+        	out.println(j.mostrarMuñequito());
+        	out.println("<br>");
+        }
+		out.println("</h1>");
 		
 		out.println(j.juego(l, tam));
 		
@@ -128,7 +78,9 @@ public class JuegoServlet extends HttpServlet {
 		out.println("<input type='submit' value='Pedir Pista Frase'>");
 		out.println("</form>");
 		
-		out.println("<a href = 'infBasico.html' >Cancelar el juego</a>");
+		out.println("<form action='nivelBasicoServlet'>");
+		out.println("<input type='submit' value='Cancelar el juego'>");
+		out.println("</form>");
 
 		out.println("</body>");
 		out.println("</html>");

@@ -47,4 +47,12 @@
 	<servlet-name>pistaServlet</servlet-name>
 	<url-pattern>/pistaServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+	<servlet-name>nivelBasicoServlet</servlet-name>
+	<servlet-class>AhorcadoTDD.NivelBasicoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>nivelBasicoServlet</servlet-name>
+	<url-pattern>/nivelBasicoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
