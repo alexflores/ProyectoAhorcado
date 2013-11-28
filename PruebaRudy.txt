@@ -2,4 +2,7 @@ rudy 14
 luis 56
 lucho 4
 rudy 16
-rudy 10
+rudy 100
+lucho 40
+tenguentopa 70
+nose 10
