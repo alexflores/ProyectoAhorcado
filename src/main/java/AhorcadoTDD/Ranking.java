@@ -95,5 +95,11 @@ public class Ranking {
 	        } 
 	 
         }
+	public String sacarNombre(String jugadorYpuntaje)
+	{
+		String nombre;
+		String[] campos = jugadorYpuntaje.split (" "); 
+		return (campos[0]);	
+	}
 
 }
