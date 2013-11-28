@@ -61,7 +61,7 @@ public class JuegoServlet extends HttpServlet {
 		out.println("<h1>");
         if(!j.jugarLetra(l) && tam==1)
         {
-        	out.println(j.mostrarMuñequito());
+        	out.println(j.mostrarMuniequito());
         	out.println("<br>");
         }
 		out.println("</h1>");

@@ -112,7 +112,7 @@ public class Juego {
 		return _RESULTADO;
 	}
 	
-	public String mostrarMuñequito()
+	public String mostrarMuniequito()
 	{	
 		//_CUERPITO = new String();
 		switch(cant_error) {
