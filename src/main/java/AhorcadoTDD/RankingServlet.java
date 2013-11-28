@@ -11,23 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 	public class RankingServlet extends HttpServlet {
 		Juego j = new Juego();
 		Ranking r=new Ranking();
+		Ranking auxi=new Ranking();
 		int a=0;
+		
 		public RankingServlet() {
-			
+			r.IngresarPuntaje("rudy", 5);
+			r.IngresarPuntaje("luis", 4);
+			r.ObtenerUsuarios();
+			auxi.ObtenerUsuarios();
 
 		}
-		
 		@Override
 		protected void service(HttpServletRequest request, HttpServletResponse response)
 				throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<body bgcolor=#33ff00>");
-		r.IngresarPuntaje("rudy",100);
-		r.IngresarPuntaje("lucho",40);
-		r.IngresarPuntaje("tenguentopa",70);
-		r.IngresarPuntaje("nose",10);
-		r.ObtenerUsuarios();
+		
+		
 		out.println("USUARIO    PUNTAJE ");
 		out.println("<br/>");
 		int aux;
@@ -35,22 +36,20 @@ import javax.servlet.http.HttpServletResponse;
 			out.println(r.ListaPalabras.get(aux));
 			out.println("<br/>");
 		}
-		
 		out.println("--------------------------");
 		out.println("<br/>");
 		out.println("Ordenado Decendente");
 		out.println("<br/>");
-		r.OrdenamientoBurbuja();
-		for(a=0;a<r.ListaPalabras.size();a++){
-			out.println(r.ListaPalabras.get(a));
+		auxi.OrdenamientoBurbuja();
+		for(a=0;a<auxi.ListaPalabras.size();a++){
+			out.println(auxi.ListaPalabras.get(a));
 			out.println("<br/>");
 		}
 		out.println("<br/>");
 		out.println("Ordenado Acendente");
 		out.println("<br/>");
-		Collections.reverse(r.ListaPalabras);
-		for(a=0;a<r.ListaPalabras.size();a++){
-			out.println(r.ListaPalabras.get(a));
+		for(a=auxi.ListaPalabras.size()-1;a>=0;a--){
+			out.println(auxi.ListaPalabras.get(a));
 			out.println("<br/>");
 		}
 		out.println("<br/>");
