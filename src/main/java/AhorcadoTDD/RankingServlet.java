@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 				throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println("<body bgcolor=#33ff00>");
+		out.println("<body background='mifondo.jpg'");
 		
 		
 		out.println("USUARIO    PUNTAJE ");

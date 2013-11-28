@@ -17,9 +17,8 @@ public class NivelBasicoServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		PrintWriter out = response.getWriter();
-	
 		out.println("<html>");
-		out.println("<body bgcolor=#33ff00>");	
+		out.println("<body background='mifondo.jpg'");	
 		out.println("<h1>Informacion del nivel</h1><br>");
 		out.println("<h2>Nivel : Basico</h2><br><br>");
 		out.println("<h2>Nro de pistas : 6</h2><br><br>");

@@ -2,6 +2,7 @@ package AhorcadoTDD;
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,9 @@ public class PistaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<body background='mifondo.jpg'");	
 		String palabra = request.getParameter("palabraPista");
 		String pista = dic.ObtenerFraseDadaUnaPalabra(new Diccionario(palabra,"",""));
 		if(palabra!= "")
@@ -25,7 +29,6 @@ public class PistaServlet extends HttpServlet {
 			response.getWriter().println("<br><br>");
 		}
 		
-		java.io.PrintWriter out = response.getWriter();
 		//output your page here
 		out.println("<center><h1><a href=juegoServlet>Volver<a/></h1></center>");
 		

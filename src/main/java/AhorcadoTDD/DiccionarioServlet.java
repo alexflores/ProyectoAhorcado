@@ -19,6 +19,8 @@ public class DiccionarioServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		java.io.PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<body background='mifondo.jpg'");
 		dic.palabraDiccionario = request.getParameter("palabra");
 		dic.fraseDiccionario = request.getParameter("frase");
 		dic.categoriaDiccionario = request.getParameter("categoria");

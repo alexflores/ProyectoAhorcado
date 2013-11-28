@@ -18,7 +18,8 @@ public class InfoJuegoServlet extends HttpServlet {
 		
 		response.setContentType("text/html");
 		java.io.PrintWriter out = response.getWriter();
-		
+		out.println("<html>");
+		out.println("<body background='mifondo.jpg'");
 		Juego game = new Juego();
 		//Usuario user = new Usuario();
 		Diccionario dictionary = new Diccionario();

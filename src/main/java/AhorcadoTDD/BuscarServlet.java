@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 		PrintWriter out = response.getWriter();
 		Player= request.getParameter("palabra");
 		out.println("<html>");
-		out.println("<body bgcolor=#33ff00>");
+		out.println("<body background='mifondo.jpg'");
 		out.println("USUARIO    PUNTAJE ");
 		out.println("<br/>");
 		int aux;
