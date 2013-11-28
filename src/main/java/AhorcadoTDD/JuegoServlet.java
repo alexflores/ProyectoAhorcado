@@ -18,7 +18,7 @@ public class JuegoServlet extends HttpServlet {
 		dic.palabraDiccionario = "sistemas";
 		dic.fraseDiccionario = "permite estudiar y comprender la realidad, con el propósito de implementar u optimizar sistemas complejos";
 		dic.AniadirPalabra(dic);
-		pal = "sistemas";
+		pal = dic.ObtenerPalabra();
 		j.iniciarJuego(pal);
 		
 	}
@@ -31,6 +31,8 @@ public class JuegoServlet extends HttpServlet {
 
 		String resetear = new String();
 		resetear="restart";
+
+		String palabraYFraseObtenida = "Palabra: { "+pal+" }, Frase: {"+dic.ObtenerFraseDadaUnaPalabra(new Diccionario(pal,""))+" }";
 
 		String letrita = request.getParameter("letra");
 		resetear = request.getParameter("resetear");
@@ -67,15 +69,17 @@ public class JuegoServlet extends HttpServlet {
 		
 		out.println(j.juego(l, tam));
 		
-		out.println("<br><br><br><br>");
+		out.println("<br><br>");
+		out.println(palabraYFraseObtenida);
+		out.println("<br><br>");
 		out.println("<form action='juegoServlet'>");
 		out.println("Ingresar una letra: <input type='text' name='letra'><br>");
 		out.println("<input type='submit' value='Ingresar'>");
 		out.println("</form>");
 
 
-		out.println("<form action='pistaServlet'>");
-		out.println("<input type='hidden' name='palabraPista' value='pal'><br>");
+		out.println("<form action='pistaServlet' method='post'>");
+		out.println("<input type='hidden' name='palabraPista' value='"+pal+"'><br>");
 		out.println("<input type='submit' value='Pedir Pista Frase'>");
 		out.println("</form>");
 		

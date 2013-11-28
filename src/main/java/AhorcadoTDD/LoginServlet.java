@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class LoginServlet extends HttpServlet {
 	
-	Usuario user = new Usuario();
-	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		response.setContentType("text/html");
 		java.io.PrintWriter out = response.getWriter();
+		
+		Usuario user = new Usuario();
 		
 		String login = request.getParameter("login");
 		String pass = request.getParameter("password");

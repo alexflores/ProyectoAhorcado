@@ -144,6 +144,7 @@ public class Diccionario {
 	}
 
 	public String ObtenerPalabra() {
+		ListaDePalabras = ObtenerListaDePalabras();
 		String palabra = "";
 		if(ListaDePalabras.size()==0){
 			Diccionario d = new Diccionario();

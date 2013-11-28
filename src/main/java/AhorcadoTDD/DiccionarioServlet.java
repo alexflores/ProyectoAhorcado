@@ -18,30 +18,22 @@ public class DiccionarioServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
+		java.io.PrintWriter out = response.getWriter();
 		dic.palabraDiccionario = request.getParameter("palabra");
 		dic.fraseDiccionario = request.getParameter("frase");
-		if(dic.AniadirPalabra(dic))
-		{
-			response.getWriter().println("<font size='6' color='green'>La Palabra: { "+dic.palabraDiccionario+" } fue ingresada Exitosamente</font>");
-			response.getWriter().println("<br><br>");
-			response.getWriter().println("<h3>Lista de Palabras: </h3>");
-			response.getWriter().println("<br>");
+		if(dic.AniadirPalabra(dic)){
+			out.println("<font size='6' color='green'>La Palabra: { "+dic.palabraDiccionario+" } fue ingresada Exitosamente</font><br><br>");
 		}
-		else
-		{
-			response.getWriter().println("<font size='10' color='red'>error: la palabra no es valida o ya se ecuentra en el diccionario</font>");
+		else{
+			out.println("<font size='10' color='red'>error: la palabra no es valida o ya se ecuentra en el diccionario</font>");
 		}
 		ArrayList<String> List = dic.MostrarPalabrasEnDiccionario();
+		out.println("<h3>Lista de Palabras: </h3><br>");
 		for(int i=0; i<List.size(); i++)
 		{
-			response.getWriter().println("<h5>"+List.get(i)+",</h5>");
-			response.getWriter().println();
+			out.println("<h4>"+List.get(i)+",</h4><br>");
 		}
-		
-		java.io.PrintWriter out = response.getWriter();
-		//output your page here
-		out.println("<center><h1><a href=diccionario.html>Volver<a/></h1></center>");
-		
+		out.println("<center><h1><a href=index.html>Volver<a/></h1></center>");
 		out.close();
 		
 	}

@@ -7,8 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import AhorcadoTDD.Diccionario;
-import AhorcadoTDD.Usuario;
-
 public class TestDiccionario {
 
 	Diccionario diccionario;
